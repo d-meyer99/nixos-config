@@ -35,6 +35,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     pkgs.oh-my-posh
+    pkgs.keychain
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
