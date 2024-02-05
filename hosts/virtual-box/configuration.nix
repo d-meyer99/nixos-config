@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, modulesPath, ... }:
 
 {
-  imports = [ <nixpkgs/nixos/modules/installer/virtualbox-demo.nix> ];
+  imports = [ "${modulesPath}/installer/virtualbox-demo.nix" ];
 
   # Let demo build as a trusted user.
 # nix.settings.trusted-users = [ "demo" ];
@@ -14,6 +14,9 @@
 #   device = "nameofdevicetomount";
 #   options = [ "rw" ];
 # };
+
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.x11 = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
