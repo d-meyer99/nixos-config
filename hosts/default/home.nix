@@ -12,7 +12,7 @@ let
     ll = "ls -la";
   };
 
-  basePath = /home/dm/.dotfiles;
+  ohMyPoshThemePath = ".config/oh-my-posh/theme.omp.json";
 in
 {
   home.username = "dm";
@@ -64,12 +64,15 @@ in
     enableCompletion = true;
     shellAliases = myAliases;
     initExtra = ''
-      eval "$(oh-my-posh init zsh --config /home/dm/.config/oh-my-posh/theme.omp.json)"
+      eval "$(oh-my-posh init zsh --config home/dm/${ohMyPoshThemePath}"
     '';
     loginExtra = ''
       dbus-run-session Hyprland
     '';
   };
+
+  home.file.${ohMyPoshThemePath}.source =
+    ../../packages/oh-my-posh/theme.omp.json;
 
   programs.keychain = {
     enable = true;
