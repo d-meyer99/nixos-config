@@ -73,7 +73,7 @@
     mako
     libnotify
     swww
-    alacritty
+    kitty
     rofi-wayland
     xdg-desktop-portal-hyprland
     xclip
