@@ -1,0 +1,158 @@
+{ config, pkgs, ... }:
+
+{
+  imports = [ <nixpkgs/nixos/modules/installer/virtualbox-demo.nix> ];
+
+  # Let demo build as a trusted user.
+# nix.settings.trusted-users = [ "demo" ];
+
+# Mount a VirtualBox shared folder.
+# This is configurable in the VirtualBox menu at
+# Machine / Settings / Shared Folders.
+# fileSystems."/mnt" = {
+#   fsType = "vboxsf";
+#   device = "nameofdevicetomount";
+#   options = [ "rw" ];
+# };
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+# By default, the NixOS VirtualBox demo image includes SDDM and Plasma.
+# If you prefer another desktop manager or display manager, you may want
+# to disable the default.
+  services.xserver.desktopManager.plasma4.enable = lib.mkForce false;
+  services.xserver.displayManager.sddm.enable = lib.mkForce false;
+
+
+  # Set your time zone.
+  time.timeZone = "Europe/London";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_GB.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_GB.UTF-8";
+    LC_IDENTIFICATION = "en_GB.UTF-8";
+    LC_MEASUREMENT = "en_GB.UTF-8";
+    LC_MONETARY = "en_GB.UTF-8";
+    LC_NAME = "en_GB.UTF-8";
+    LC_NUMERIC = "en_GB.UTF-8";
+    LC_PAPER = "en_GB.UTF-8";
+    LC_TELEPHONE = "en_GB.UTF-8";
+    LC_TIME = "en_GB.UTF-8";
+  };
+
+  # Configure keymap in X11
+  services.xserver = {
+    xkb.layout = "pl";
+    xkb.variant = "";
+  };
+
+  # Configure console keymap
+  console.keyMap = "pl2";
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.dm = {
+    home = "/home/dm";
+    password = "12345";
+    isNormalUser = true;
+    description = "Dominik Meyer";
+    extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
+  };
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # List packages installed in system profile. To search, run:
+  environment.systemPackages = with pkgs; [
+    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    git
+    wget
+    (waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      })
+    )
+    mako
+    libnotify
+    swww
+    alacritty
+    rofi-wayland
+    xdg-desktop-portal-hyprland
+    xclip
+    brave
+    gcc
+    zip
+    unzip
+    nodejs
+    networkmanagerapplet
+    ripgrep
+    fd
+    dolphin
+    home-manager
+
+    # Formatters
+    stylua
+    beautysh
+
+    # Language servers
+    nodePackages.bash-language-server
+    lua-language-server
+    nil
+  ];
+
+  fonts.packages = with pkgs; [
+    nerdfonts
+  ];
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  programs.zsh.enable = true;
+
+  environment.sessionVariables = {
+    # If cursor becomes invisible
+  #  WLR_NO_HARDWARE_CURSORS = "1";
+    # Hint electron apps to use wayland
+    NIXOS_OZONE_WL = "1";
+  };
+
+  hardware = {
+    opengl.enable = true;
+  };
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+
+  # Enable bluetooth
+  hardware.bluetooth.enable = true;
+
+  sound.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
+
+  system.stateVersion = "24.05";
+
+# Enable the OpenSSH daemon.
+# services.openssh.enable = true;
+
+}

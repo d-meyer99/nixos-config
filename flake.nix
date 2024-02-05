@@ -24,6 +24,13 @@
             ./hosts/default/configuration.nix
           ];
         };
+	
+	virtual-box = lib.nixosSystem {
+          inherit system;
+	  modules = [
+	    ./hosts/virtual-box/configuration.nix
+	  ];
+	};
       };
 
       homeConfigurations = {
