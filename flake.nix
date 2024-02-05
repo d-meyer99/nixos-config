@@ -12,34 +12,34 @@
 
   outputs = { self, nixpkgs, home-manager, ... }:
     let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      lib = nixpkgs.lib;
-    in
-    {
-      nixosConfigurations = {
-        default = lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./hosts/default/configuration.nix
-          ];
-        };
-	
-	virtual-box = lib.nixosSystem {
-          inherit system;
-	  modules = [
-	    ./hosts/virtual-box/configuration.nix
-	  ];
-	};
+    system = "x86_64-linux";
+  pkgs = nixpkgs.legacyPackages.${system};
+  lib = nixpkgs.lib;
+  in
+  {
+    nixosConfigurations = {
+      default = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/default/configuration.nix
+        ];
       };
 
-      homeConfigurations = {
-        dm = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./hosts/default/home.nix
-          ];
-        };
+      virtual-box = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/virtual-box/configuration.nix
+        ];
       };
+    };
+
+    homeConfigurations = {
+      dm = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./hosts/default/home.nix
+        ];
+      };
+    };
   };
 }

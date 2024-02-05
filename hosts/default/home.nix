@@ -66,7 +66,7 @@ in
     enableCompletion = true;
     shellAliases = myAliases;
     initExtra = ''
-      eval "$(oh-my-posh init zsh --config home/dm/${ohMyPoshThemePath}"
+      eval "$(oh-my-posh init zsh --config /home/dm/${ohMyPoshThemePath})"
     '';
     loginExtra = ''
       dbus-run-session Hyprland

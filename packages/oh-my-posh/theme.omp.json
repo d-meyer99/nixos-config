@@ -1,56 +1,56 @@
 {
-	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-	"blocks": [
-		{
-			"alignment": "left",
-			"segments": [
-				{
-					"foreground": "#ffcb00",
-					"style": "plain",
-					"template": "➜",
-					"type": "text"
-				},
-				{
-					"foreground": "#8b75ca",
-					"properties": {
-						"style": "agnoster"
-					},
-					"style": "plain",
-					"template": " {{ path .Path .Location }} ",
-					"type": "path"
-				},
-				{
-					"foreground": "#8f7f6f",
-					"properties": {
-						"branch_icon": ""
-					},
-					"style": "plain",
-					"template": "| {{ .HEAD }}@{{ url .RepoName .UpstreamURL }} {{ .UpstreamIcon -}} | ",
-					"type": "git"
-				},
-				{
-					"foreground": "#98C379",
-					"foreground_templates": [
-						"{{ if gt .Code 0 }}#D0666F{{ end }}"
-					],
-					"properties": {
-						"always_enabled": true,
-						"display_exit_code": true
-					},
-					"style": "plain",
-					"template": "{{ if gt .Code 0 }}\uf00d {{ .Meaning }}{{ else }}{{ end }}",
-					"type": "exit"
-				},
-				{
-					"foreground": "#ffcb00",
-					"style": "plain",
-					"template": "  ",
-					"type": "text"
-				}
-			],
-			"type": "prompt"
-		}
-	],
-	"final_space": true,
-	"version": 2
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
+        {
+            "alignment": "left",
+            "segments": [
+                {
+                    "foreground": "#ffcb00",
+                    "style": "plain",
+                    "template": "➜",
+                    "type": "text"
+                },
+                {
+                    "foreground": "#8b75ca",
+                    "properties": {
+                        "style": "agnoster"
+                    },
+                    "style": "plain",
+                    "template": " {{ path .Path .Location }} ",
+                    "type": "path"
+                },
+                {
+                    "foreground": "#8f7f6f",
+                    "properties": {
+                        "branch_icon": ""
+                    },
+                    "style": "plain",
+                    "template": "| {{ .HEAD }}@{{ url .RepoName .UpstreamURL }} {{ .UpstreamIcon -}} | ",
+                    "type": "git"
+                },
+                {
+                    "foreground": "#98C379",
+                    "foreground_templates": [
+                        "{{ if gt .Code 0 }}#D0666F{{ end }}"
+                    ],
+                    "properties": {
+                        "always_enabled": true,
+                        "display_exit_code": true
+                    },
+                    "style": "plain",
+                    "template": "{{ if gt .Code 0 }}\uf00d {{ .Meaning }}{{ else }}{{ end }}",
+                    "type": "exit"
+                },
+                {
+                    "foreground": "#ffcb00",
+                    "style": "plain",
+                    "template": "  ",
+                    "type": "text"
+                }
+            ],
+            "type": "prompt"
+        }
+    ],
+    "final_space": true,
+    "version": 2
 }
