@@ -1,5 +1,15 @@
 { config, pkgs, ... }:
 
+let
+  myAliases = {
+    v = "nvim";
+    vnix = "nvim ~/.config/nixos/hosts/default/configuration.nix";
+    nixos-test = "sudo nixos-rebuild test --flake /home/dm/.dotfiles#default";
+    nixos-switch = "sudo nixos-rebuild switch --flake/home/dm/.dotfiles#default";
+    hm-switch = "home-manager switch --flake /home/dm/.dotfiles";
+    ll = "ls -la";
+  };
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -69,10 +79,35 @@
   #  /etc/profiles/per-user/dm/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   programs.alacritty.enable = true;
+
+  programs.git = {
+    enable = true;
+    userName = "d-meyer99";
+    userEmail = "d.meyer99@hotmail.com";
+    aliases = {
+      pu = "push";
+      co = "checkout";
+      cm = "commit";
+    };
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    shellAliases = myAliases;
+    initExtra = ''
+      export TERMINAL="alacritty"
+      eval "$(oh-my-posh init zsh --config /home/dm/.config/oh-my-posh/theme.omp.json)"
+    '';
+    loginExtra = ''
+      dbus-run-session Hyprland
+    '';
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
