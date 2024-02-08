@@ -1,4 +1,8 @@
-{ config, pkgs, inputs, ... }:
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
+{ config, pkgs, ... }:
 
 {
   imports =
@@ -13,8 +17,6 @@
 
   networking.hostName = "nixos-vm"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -43,8 +45,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    xkb.layout = "pl";
-    xkb.variant = "";
+    layout = "pl";
+    xkbVariant = "";
   };
 
   # Configure console keymap
@@ -55,92 +57,32 @@
     isNormalUser = true;
     description = "Dominik Meyer";
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
+    packages = with pkgs; [];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
+  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neofetch
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    git
     wget
-    (waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      })
-    )
-    mako
-    libnotify
-    swww
-    kitty
-    rofi-wayland
-    xdg-desktop-portal-hyprland
-    xclip
-    brave
-    gcc
-    zip
-    unzip
-    nodejs
-    networkmanagerapplet
-    ripgrep
-    fd
-    dolphin
-    home-manager
-
-    # Formatters
-    stylua
-    beautysh
-
-    # Language servers
-    nodePackages.bash-language-server
-    lua-language-server
-    nil
+    neovim
+    git
   ];
 
-  fonts.packages = with pkgs; [
-    nerdfonts
-  ];
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
+  # List services that you want to enable:
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  programs.zsh.enable = true;
-
-  environment.sessionVariables = {
-    # If cursor becomes invisible
-  #  WLR_NO_HARDWARE_CURSORS = "1";
-    # Hint electron apps to use wayland
-    NIXOS_OZONE_WL = "1";
-  };
-
-  hardware = {
-    opengl.enable = true;
-  };
-
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-
-  # Enable bluetooth
-  hardware.bluetooth.enable = true;
-
-  sound.enable = true;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -148,5 +90,12 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  system.stateVersion = "24.05";
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "23.11"; # Did you read the comment?
+
 }

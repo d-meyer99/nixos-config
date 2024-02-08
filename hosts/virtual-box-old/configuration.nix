@@ -1,27 +1,33 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, lib, modulesPath, services, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ "${modulesPath}/installer/virtualbox-demo.nix" ];
 
-  # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  # Let demo build as a trusted user.
+# nix.settings.trusted-users = [ "demo" ];
 
-  networking.hostName = "nixos-vm"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+# Mount a VirtualBox shared folder.
+# This is configurable in the VirtualBox menu at
+# Machine / Settings / Shared Folders.
+# fileSystems."/mnt" = {
+#   fsType = "vboxsf";
+#   device = "nameofdevicetomount";
+#   options = [ "rw" ];
+# };
+
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.x11 = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+# By default, the NixOS VirtualBox demo image includes SDDM and Plasma.
+# If you prefer another desktop manager or display manager, you may want
+# to disable the default.
+  services.xserver.desktopManager.plasma5.enable = lib.mkForce false;
+  services.xserver.displayManager.sddm.enable = lib.mkForce false;
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  hardware.pulseaudio.enable = lib.mkForce false;
+
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -40,7 +46,7 @@
     LC_TELEPHONE = "en_GB.UTF-8";
     LC_TIME = "en_GB.UTF-8";
   };
-
+ 
   # Configure keymap in X11
   services.xserver = {
     xkb.layout = "pl";
@@ -52,6 +58,8 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dm = {
+    home = "/home/dm";
+    password = "12345";
     isNormalUser = true;
     description = "Dominik Meyer";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -74,7 +82,7 @@
     mako
     libnotify
     swww
-    kitty
+    alacritty
     rofi-wayland
     xdg-desktop-portal-hyprland
     xclip
@@ -149,4 +157,8 @@
   # networking.firewall.enable = false;
 
   system.stateVersion = "24.05";
+
+# Enable the OpenSSH daemon.
+# services.openssh.enable = true;
+
 }
