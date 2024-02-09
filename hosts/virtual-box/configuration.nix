@@ -15,6 +15,7 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  virtualisation.virtualbox.guest.x11 = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -54,7 +55,7 @@
   users.users.dm = {
     isNormalUser = true;
     description = "Dominik Meyer";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "vboxsf" ];
     shell = pkgs.zsh;
   };
 
@@ -64,7 +65,7 @@
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
     neofetch
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neovim
     git
     wget
     (waybar.overrideAttrs (oldAttrs: {
@@ -76,7 +77,6 @@
     swww
     kitty
     rofi-wayland
-    xdg-desktop-portal-hyprland
     xclip
     brave
     gcc
@@ -88,6 +88,11 @@
     fd
     dolphin
     home-manager
+    hyper
+    konsole
+    gtk3
+    bspwm
+
 
     # Formatters
     stylua
@@ -108,26 +113,28 @@
     defaultEditor = true;
   };
 
-  programs.hyprland = {
+  programs.sway = {
     enable = true;
-    xwayland.enable = true;
   };
 
   programs.zsh.enable = true;
 
   environment.sessionVariables = {
     # If cursor becomes invisible
-  #  WLR_NO_HARDWARE_CURSORS = "1";
+    WLR_NO_HARDWARE_CURSORS = "1";
     # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
   };
 
   hardware = {
     opengl.enable = true;
+    opengl.driSupport32Bit = true;
+    nvidia.modesetting.enable = true;
   };
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  services.xserver.videoDrivers = [ "virtualbox" "vmware" ];
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;

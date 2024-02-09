@@ -37,7 +37,13 @@
       dm = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./hosts/default/home.nix
+          ./profiles/dm/home.nix
+        ];
+      };
+      vm-dm = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./profiles/vm-dm/home.nix
         ];
       };
     };
