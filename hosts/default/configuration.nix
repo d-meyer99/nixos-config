@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
@@ -74,7 +74,7 @@
     mako
     libnotify
     swww
-    kitty
+    alacritty
     rofi-wayland
     xdg-desktop-portal-hyprland
     xclip

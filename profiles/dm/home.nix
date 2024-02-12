@@ -15,6 +15,10 @@ let
   ohMyPoshThemePath = ".config/oh-my-posh/theme.omp.json";
 in
 {
+  imports = [
+    ../../wallpapers/wallpaper.nix
+  ];
+
   home.username = "dm";
   home.homeDirectory = "/home/dm";
 
@@ -23,6 +27,9 @@ in
   home.packages = [
     pkgs.oh-my-posh
     pkgs.keychain
+    pkgs.udisks
+    pkgs.parted
+    pkgs.gparted
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -42,7 +49,7 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    TERMINAL = "kitty";
+    TERMINAL = "alacritty";
   };
 
   programs.alacritty.enable = true;
@@ -82,9 +89,9 @@ in
     ];
   };
 
-  # home.file.".config/hypr/hyprland.conf".source = ../../packages/hyprland/hyprland.conf;
+  home.file.".config/hypr/hyprland.conf".source = ../../packages/hyprland/hyprland.conf;
 
-  # home.file.".config/hypr/start.sh".source = ../../packages/hyprland/start.sh;
+  home.file.".config/hypr/start.sh".source = ../../packages/hyprland/start.sh;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
