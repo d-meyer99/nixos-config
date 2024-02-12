@@ -8,9 +8,7 @@ let
     nixos-test = "sudo nixos-rebuild test --flake /home/dm/.dotfiles#default";
     nixos-switch =
       "sudo nixos-rebuild switch --flake /home/dm/.dotfiles#default";
-    nixos-vmswitch =
-      "sudo nixos-rebuild switch --flake /home/dm/.dotfiles#virtual-box";
-    hm-switch = "home-manager switch --flake /home/dm/.dotfiles";
+    hm-switch = "home-manager switch --flake /home/dm/.dotfiles#dm";
     ll = "ls -la";
   };
 

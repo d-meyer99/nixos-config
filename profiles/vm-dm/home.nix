@@ -42,7 +42,7 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    TERMINAL = "kitty";
+    TERMINAL = "alacritty";
   };
 
   programs.alacritty.enable = true;
@@ -67,7 +67,7 @@ in
       eval "$(oh-my-posh init zsh --config /home/dm/${ohMyPoshThemePath})"
     '';
     loginExtra = ''
-      dbus-run-session Hyprland
+      dbus-run-session sway
     '';
   };
 
@@ -82,9 +82,18 @@ in
     ];
   };
 
-  # home.file.".config/hypr/hyprland.conf".source = ../../packages/hyprland/hyprland.conf;
-
-  # home.file.".config/hypr/start.sh".source = ../../packages/hyprland/start.sh;
+  wayland.windowManager.sway = {
+    enable = true;
+    xwayland = true;
+    config = {
+      gaps = {
+        vertical = 5;
+        left = 5;
+        right = 5;
+        bottom = 5;
+      };
+    };
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
