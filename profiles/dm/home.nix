@@ -8,6 +8,7 @@
     ../../packages/git/git.nix
     ../../packages/keychain/keychain.nix
     ../../packages/alacritty/alacritty.nix
+    ../../packages/waybar/waybar-hyprland.nix
   ];
 
   home.username = "dm";
@@ -15,9 +16,9 @@
 
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  home.packages = [
-    pkgs.oh-my-posh
-    pkgs.keychain
+  home.packages = with pkgs; [
+    oh-my-posh
+    keychain
   ];
 
   home.sessionVariables = {

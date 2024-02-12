@@ -97,6 +97,7 @@
     nodePackages.bash-language-server
     lua-language-server
     nil
+    nodePackages.vscode-css-languageserver-bin
   ];
 
   fonts.packages = with pkgs; [
