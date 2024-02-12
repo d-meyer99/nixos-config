@@ -4,8 +4,9 @@
   imports = [
     ../../wallpapers/wallpaper.nix
     ../../packages/hyprland/hyprland.nix
-    ../../packages/zsh/thinkpad.nix
+    ../../packages/zsh/vm.nix
     ../../packages/git/git.nix
+    ../../packages/keychain/keychain.nix
   ];
   home.username = "dm";
   home.homeDirectory = "/home/dm";
