@@ -6,7 +6,7 @@ swww img ~/Wallpaper/wallpaper.jpg &
 nm-applet --indicator &
 
 # the bar
-waybar &
+# waybar &
 
 # dunst
 dunst

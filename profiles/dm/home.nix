@@ -7,6 +7,7 @@
     ../../packages/zsh/thinkpad.nix
     ../../packages/git/git.nix
     ../../packages/keychain/keychain.nix
+    ../../packages/alacritty/alacritty.nix
   ];
 
   home.username = "dm";
