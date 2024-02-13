@@ -10,20 +10,44 @@
       mainBar = {
         layer = "top";
         position = "top";
-        modules-center = [ "hyprland/workspaces" ];
+        margin = "5 5 0 5";
+        modules-left = [
+          "hyprland/window"
+        ];
+        modules-center = [ 
+          "hyprland/workspaces"
+        ];
+        modules-right = [
+         "battery"
+        ];
         reload_style_on_change = true;
         "hyprland/workspaces" = {
           persistent-workspaces = {
-            "*" = [ 1 2 3 4 5];
+            "*" = [ 1 2 3 4 5 ];
           };
-          format = "{name}: {icon}";
+          format = "{icon}";
           format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            "4" = "";
-            "5" = "";
+            "default" = "";
+            "persistent" = "󰓏";
+            "active" = "󰗠";
           };
+        };
+        "hyprland/window" = {
+          format = "{:.75}";
+          rewrite = {
+            "(.*) - Brave" = " $1";
+            "Alacritty" = " $0";
+          };
+        };
+        battery = {
+          format = "{icon}{capacity:3}%";
+          states = {
+            warning = 40;
+            critical = 20;
+          };
+          format-charging = "󰂄{capacity:3}%";
+          format-plugged = "󰚥{capacity:3}%";
+          format-icons = ["󰁻" "󰁽" "󰁿" "󰂁" "󰁹" ];
         };
       };
     };

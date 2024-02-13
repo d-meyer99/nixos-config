@@ -67,10 +67,6 @@
         preserve_split = true;
       };
 
-      master = {
-        new_is_master = true;
-      };
-
       gestures = {
         workspace_swipe = false;
       };
@@ -82,22 +78,28 @@
       "$mainMod" = "SUPER";
       bind = [
         "$mainMod, return, exec, alacritty"
-        "$mainMod, C, killactive"
+        "$mainMod, Q, killactive"
         "$mainMod, M, exit"
         "$mainMod, E, exec, dolphin"
         "$mainMod, V, togglefloating"
         "$mainMod, O, exec, rofi -show drun -show-icons"
         "$mainMod, P, pseudo"
         "$mainMod, B, togglesplit"
+        "$mainMod, F, fullscreen"
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
-        "$mainMod, L, movefocus, l"
-        "$mainMod, H, movefocus, r"
+        "$mainMod, H, movefocus, l"
+        "$mainMod, L, movefocus, r"
         "$mainMod, K, movefocus, u"
         "$mainMod, J, movefocus, d"
+
+        "$mainMod SHIFT, H, swapwindow, l"
+        "$mainMod SHIFT, L, swapwindow, r"
+        "$mainMod SHIFT, K, swapwindow, u"
+        "$mainMod SHIFT, J, swapwindow, d"
 
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"

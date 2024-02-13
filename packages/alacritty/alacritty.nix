@@ -31,7 +31,7 @@
         normal = {
           black   = "#332222";
           red     = "#ee5168";
-          green   = "#83c85d";
+          green   = "#336823";
           yellow  = "#ffcb6b";
           blue    = "#4288cc";
           magenta = "#f762ca";
@@ -49,7 +49,7 @@
           white   = "#ffdddd";
         };
         indexed_colors =[
-          { index = 16; color = "#f78c6c"; }
+          { index = 16; color = "#b7512c"; }
           { index = 17; color = "#ff5370"; }
           { index = 18; color = "#303030"; }
           { index = 19; color = "#353535"; }

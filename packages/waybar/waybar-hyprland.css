@@ -1,15 +1,19 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 11px;
+    font-family: AurulentSansM Nerd Font;
+    font-size: 10px;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0);
-    border-bottom: 3px solid rgba(100, 114, 125, 0);
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
+    background: transparent;
+}
+
+label#window{
+    padding: 0 5px 0 5px;
+    border-radius: 10px;
+    background-color: rgba(51, 34, 34, 0.6);
+    color: #ffdddd;
+    font-family: AurulentSansM Nerd Font;
 }
 
 button {
@@ -20,16 +24,29 @@ button {
     border-radius: 0;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+#workspaces {
+    border-radius: 10px;
+    background: rgba(51, 34, 34, 0.6);
 }
 
 #workspaces button {
-    padding: 0 0.5em;
-    background-color: rgba(#332222, 0.8);
-    color: #ffffff;
+    padding: 0 3px 0 0;
+    background: transparent;
+    color:  #ffdddd;
+}
+
+#workspaces button:hover {
+    transition: none;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    border-radius: inherit;
+    background: #332222;
+}
+
+#workspaces button.active {
+    border-radius: 10px;
+    color: #ee5168;
+    background: rgba(51, 34, 34, 0.6);
 }
 
 #mode {
@@ -37,53 +54,30 @@ button:hover {
     border-bottom: 3px solid #ffffff;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#mpd {
-    padding: 0 10px;
-    color: #ffffff;
-}
-
-#window,
-#workspaces {
-    margin: 0 4px;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
-}
-
 #clock {
     background-color: #64727D;
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: rgba(51, 34, 34, 0.6);
+    color: #ffdddd;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#battery.warning {
+    color: #ffcb6b;
+    background-color: rgba(183, 81, 44, 0.7);
+}
+
+#battery.critical {
+    color: #ff5370;
+    background-color: rgba(119, 51, 51, 0.7);
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: #83c85d;
+    background-color: rgba(51, 104, 35, 0.45);
 }
 
 @keyframes blink {
@@ -91,17 +85,6 @@ button:hover {
         background-color: #ffffff;
         color: #000000;
     }
-}
-
-/* Using steps() instead of linear as a timing function to limit cpu usage */
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
 }
 
 label:focus {
