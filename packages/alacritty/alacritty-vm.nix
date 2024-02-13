@@ -1,7 +1,8 @@
+{lib, ...}:
 {
   imports = [
     ./alacritty.nix
   ];
 
-  programs.alacritty.settings.font.size = 11;
+  programs.alacritty.settings.font.size = lib.mkForce 12;
 }
