@@ -3,11 +3,11 @@
 {
   imports = [
     ../../wallpapers/wallpaper.nix
-    ../../packages/hyprland/hyprland.nix
     ../../packages/zsh/vm.nix
     ../../packages/git/git.nix
     ../../packages/keychain/keychain.nix
     ../../packages/alacritty/alacritty-vm.nix
+    ../../packages/waybar/waybar-hyprland.nix
   ];
   home.username = "dm";
   home.homeDirectory = "/home/dm";

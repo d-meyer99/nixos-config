@@ -4,5 +4,8 @@
     ./alacritty.nix
   ];
 
-  programs.alacritty.settings.font.size = lib.mkForce 12;
+  programs.alacritty.settings = {
+    window.opacity = lib.mkForce 0.78;
+    font.size = lib.mkForce 12;
+  };
 }

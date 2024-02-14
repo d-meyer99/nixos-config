@@ -25,7 +25,7 @@ in
       eval "$(oh-my-posh init zsh --config /home/dm/${ohMyPoshThemePath})"
     '';
     loginExtra = ''
-      dbus-run-session Hyprland
+      dbus-run-session sway
     '';
   };
 }

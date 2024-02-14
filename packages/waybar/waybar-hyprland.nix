@@ -5,7 +5,7 @@
       enable = true;
       target = "hyprland-session.target";
     };
-    style = ./waybar-hyprland.css;
+    style = ./waybar.css;
     settings = {
       mainBar = {
         layer = "top";
