@@ -37,6 +37,7 @@
           rewrite = {
             "(.*) - Brave" = " $1";
             "Alacritty" = " $0";
+            "" = " Hyprland";
           };
         };
         battery = {
