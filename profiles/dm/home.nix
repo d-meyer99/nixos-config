@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../wallpapers/wallpaper.nix
+    ../../wallpapers/skyline.nix
     ../../packages/hyprland/hyprland.nix
     ../../packages/zsh/thinkpad.nix
     ../../packages/git/git.nix

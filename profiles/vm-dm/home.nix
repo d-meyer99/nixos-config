@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../wallpapers/wallpaper.nix
+    ../../wallpapers/mountains.nix
     ../../packages/zsh/vm.nix
     ../../packages/git/git.nix
     ../../packages/keychain/keychain.nix
@@ -25,19 +25,6 @@
   };
 
   programs.alacritty.enable = true;
-
-  # wayland.windowManager.sway = {
-  #   enable = true;
-  #   xwayland = true;
-  #   config = {
-  #     gaps = {
-  #       vertical = 5;
-  #       left = 5;
-  #       right = 5;
-  #       bottom = 5;
-  #     };
-  #   };
-  # };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

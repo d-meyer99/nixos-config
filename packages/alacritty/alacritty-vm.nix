@@ -5,7 +5,7 @@
   ];
 
   programs.alacritty.settings = {
-    window.opacity = lib.mkForce 0.78;
+    window.opacity = lib.mkForce 0.70;
     font.size = lib.mkForce 12;
   };
 }
