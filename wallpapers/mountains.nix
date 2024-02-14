@@ -1,3 +1,3 @@
 {
-  home.file."Wallpaper/wallpaper.jpg".source = ./mountain.jpg;
+  home.file."Wallpaper/wallpaper.jpg".source = ./mountains.jpg;
 }
