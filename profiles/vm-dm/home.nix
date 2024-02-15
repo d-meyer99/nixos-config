@@ -2,12 +2,13 @@
 
 {
   imports = [
-    ../../wallpapers/mountains.nix
+    ../../wallpapers/nixos.nix
     ../../packages/zsh/vm.nix
     ../../packages/git/git.nix
     ../../packages/keychain/keychain.nix
     ../../packages/alacritty/alacritty-vm.nix
     ../../packages/waybar/waybar-sway.nix
+    ../../packages/sway/sway.nix
   ];
   home.username = "dm";
   home.homeDirectory = "/home/dm";
