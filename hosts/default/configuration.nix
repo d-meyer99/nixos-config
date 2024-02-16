@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
-
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+{pkgs, ...}: let
+  commonPackages = (import ../common-packages.nix) {pkgs = pkgs;};
+in {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -14,7 +14,7 @@
   networking.hostName = "thinkpad"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -54,7 +54,7 @@
   users.users.dm = {
     isNormalUser = true;
     description = "Dominik Meyer";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
   };
 
@@ -62,43 +62,12 @@
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
-  environment.systemPackages = with pkgs; [
-    neofetch
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    git
-    wget
-    (waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      })
-    )
-    mako
-    libnotify
-    swww
-    alacritty
-    rofi-wayland
-    xdg-desktop-portal-hyprland
-    xclip
-    brave
-    gcc
-    zip
-    unzip
-    nodejs
-    networkmanagerapplet
-    ripgrep
-    fd
-    dolphin
-    home-manager
-
-    # Formatters
-    stylua
-    beautysh
-
-    # Language servers
-    nodePackages.bash-language-server
-    lua-language-server
-    nil
-    nodePackages.vscode-css-languageserver-bin
-  ];
+  environment.systemPackages =
+    commonPackages
+    ++ (with pkgs; [
+      swww
+      xdg-desktop-portal-hyprland
+    ]);
 
   fonts.packages = with pkgs; [
     nerdfonts
@@ -118,7 +87,7 @@
 
   environment.sessionVariables = {
     # If cursor becomes invisible
-  #  WLR_NO_HARDWARE_CURSORS = "1";
+    #  WLR_NO_HARDWARE_CURSORS = "1";
     # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
   };
@@ -128,7 +97,7 @@
   };
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-hyprland];
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;

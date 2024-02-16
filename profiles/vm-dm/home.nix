@@ -1,6 +1,6 @@
 {
   imports = [
-    ../homeConfig.nix
+    ../home-config.nix
     ../../wallpapers/nixos.nix
     ../../packages/zsh/vm.nix
     ../../packages/git/git.nix
@@ -9,7 +9,4 @@
     ../../packages/waybar/waybar-sway.nix
     ../../packages/sway/sway.nix
   ];
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }

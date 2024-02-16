@@ -1,10 +1,10 @@
-{ config, pkgs, inputs, ... }:
-
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+{pkgs, ...}: let
+  commonPackages = (import ../common-packages.nix) {pkgs = pkgs;};
+in {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -14,7 +14,7 @@
   networking.hostName = "nixos-vm"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   virtualisation.virtualbox.guest.x11 = true;
 
   # Configure network proxy if necessary
@@ -55,7 +55,7 @@
   users.users.dm = {
     isNormalUser = true;
     description = "Dominik Meyer";
-    extraGroups = [ "networkmanager" "wheel" "vboxsf" ];
+    extraGroups = ["networkmanager" "wheel" "vboxsf"];
     shell = pkgs.zsh;
   };
 
@@ -63,47 +63,11 @@
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
-  environment.systemPackages = with pkgs; [
-    neofetch
-    neovim
-    git
-    wget
-    (waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      })
-    )
-    mako
-    libnotify
-    swww
-    kitty
-    rofi-wayland
-    xclip
-    brave
-    gcc
-    zip
-    unzip
-    nodejs
-    networkmanagerapplet
-    ripgrep
-    fd
-    dolphin
-    home-manager
-    hyper
-    konsole
-    gtk3
-    bspwm
-
-
-    # Formatters
-    stylua
-    beautysh
-
-    # Language servers
-    nodePackages.bash-language-server
-    lua-language-server
-    nil
-    nodePackages.vscode-css-languageserver-bin
-  ];
+  environment.systemPackages =
+    commonPackages
+    ++ (with pkgs; [
+      gtk3
+    ]);
 
   fonts.packages = with pkgs; [
     nerdfonts
@@ -134,8 +98,8 @@
   };
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  services.xserver.videoDrivers = [ "virtualbox" "vmware" ];
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  services.xserver.videoDrivers = ["virtualbox" "vmware"];
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;

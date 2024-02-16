@@ -13,4 +13,7 @@
     EDITOR = "nvim";
     TERMINAL = "alacritty";
   };
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 }

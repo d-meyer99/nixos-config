@@ -10,13 +10,15 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
-    let
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  }: let
     system = "x86_64-linux";
-  pkgs = nixpkgs.legacyPackages.${system};
-  lib = nixpkgs.lib;
-  in
-  {
+    pkgs = nixpkgs.legacyPackages.${system};
+    lib = nixpkgs.lib;
+  in {
     nixosConfigurations = {
       default = lib.nixosSystem {
         inherit system;
