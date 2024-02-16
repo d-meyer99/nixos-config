@@ -10,8 +10,8 @@ window#waybar {
 label#window{
     padding: 3px 15px 3px 15px;
     border-radius: 20px;
-    background-color: rgba(51, 34, 34, 0.6);
-    color: #ffdddd;
+    background: rgba(34, 34, 85, 0.6);
+    color: #ddddff;
 }
 
 button {
@@ -24,13 +24,13 @@ button {
 
 #workspaces {
     border-radius: 20;
-    background: rgba(51, 34, 34, 0.6);
+    background: rgba(34, 34, 85, 0.6);
 }
 
 #workspaces button {
     padding: 0 13px 0 10px;
     background: transparent;
-    color:  #ffdddd;
+    color:  #ddddff;
 }
 
 #workspaces button:hover {
@@ -38,12 +38,12 @@ button {
     box-shadow: inherit;
     text-shadow: inherit;
     border-radius: inherit;
-    background: #332222;
+    background: #222255;
 }
 
 #workspaces button.focused {
     border-radius: inherit;
-    color: #ee5168;
-    background: rgba(51, 34, 34, 0.6);
+    color: #7871ff;
+    background: rgba(34, 34, 85, 0.6);
 }
 

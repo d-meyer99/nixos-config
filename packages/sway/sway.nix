@@ -11,7 +11,7 @@ let
   up = sway.config.up;
   down = sway.config.down;
 
-  bindMod = xs: utils.join "+" ([ mod ] + xs);
+  bindMod = xs: utils.join "+" ([ mod ] ++ xs);
   exec = command: "exec ${command}";
   ws = x: "workspace number ${builtins.toString x}";
   moveToWs = x: "move container to ${ws x}";
@@ -23,7 +23,6 @@ in
     systemd.enable = true;
     config = {
       modifier = "Mod4";
-      floating.modifier = mod;
       left = "h";
       right = "l";
       up = "k";
@@ -40,7 +39,7 @@ in
 
       input."*" = {
         xkb_layout = "pl";
-        xkb_variant = "";
+        xkb_variant = "''";
       };
 
       keybindings = {
@@ -49,7 +48,7 @@ in
         "${bindMod ["o"]}" = exec "rofi -show drun -show-icons";
         "${bindMod ["Shift" "c"]}" = "reload";
         "${bindMod ["m"]}" =
-            exec "swaynag -t warning -m 'Exit Sway?' -B 'Yes'";
+            exec "swaynag -t warning -m 'Exit Sway?' -B 'Yes' 'swaymsg exit'";
 
         # Move Focus with h, j, k, l
         "${bindMod [left]}" = "focus left";
@@ -85,7 +84,7 @@ in
         "${bindMod [ "7" ]}" = ws 7;
         "${bindMod [ "8" ]}" = ws 8;
         "${bindMod [ "9" ]}" = ws 9;
-        "${bindMod [ "0" ]}" = ws 10;
+        # "${bindMod [ "0" ]}" = ws 10;
 
         # Move focused container to workspace
         "${bindMod [ "Shift" "1" ]}" = moveToWs 1;
@@ -97,17 +96,17 @@ in
         "${bindMod [ "Shift" "7" ]}" = moveToWs 7;
         "${bindMod [ "Shift" "8" ]}" = moveToWs 8;
         "${bindMod [ "Shift" "9" ]}" = moveToWs 9;
-        "${bindMod [ "Shift" "0" ]}" = moveToWs 10;
+        # "${bindMod [ "Shift" "0" ]}" = moveToWs 10;
 
         "${bindMod [ "e" ]}" = "layout toggle split";
         "${bindMod [ "f" ]}" = "fullscreen";
         "${bindMod [ "s" ]}" = "scratchpad show";
-        "${bindMod [ "Shift" "s" ]}" = "move scrachpad";
+        "${bindMod [ "Shift" "s" ]}" = "move scratchpad";
         "${bindMod [ "space" ]}" = "focus mode_toggle";
         "${bindMod [ "Shift" "space" ]}" = "floating toggle";
         "${bindMod [ "r" ]}" = "mode resize";
       };
-      
+
       modes = {
         resize = {
           "${left}" = "resize shrink width 10px";
@@ -125,12 +124,27 @@ in
         };
       };
 
+      window = {
+        border = 2;
+        titlebar = false;
+      };
+
+      floating = {
+        modifier = mod;
+        border = 2;
+      };
+
+      bars = [
+        { command = "waybar"; }
+      ];
+
       gaps = {
-        vertical = 5;
-        left = 5;
-        right = 5;
-        bottom = 5;
+        top = -5;
+        inner = 10;
       };
     };
+    extraConfig = ''
+    for_window [class="^.*"] border pixel 2
+    '';
   };
 }
