@@ -1,22 +1,15 @@
+{lib, ...}:
 let
   isVm = true;
   aliases = (import ./aliases.nix) isVm;
-
-  ohMyPoshThemePath = ".config/oh-my-posh/theme.omp.json";
 in
 {
-  home.file.${ohMyPoshThemePath}.source =
-    ../../packages/oh-my-posh/theme.omp.json;
-
+  imports = [
+    ./thinkpad.nix
+  ];
   programs.zsh = {
-    enable = true;
-    enableAutosuggestions = true;
-    enableCompletion = true;
-    shellAliases = aliases;
-    initExtra = ''
-      eval "$(oh-my-posh init zsh --config /home/dm/${ohMyPoshThemePath})"
-    '';
-    loginExtra = ''
+    shellAliases = lib.mkForce aliases;
+    loginExtra = lib.mkForce ''
       dbus-run-session sway
     '';
   };
