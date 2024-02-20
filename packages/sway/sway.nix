@@ -15,6 +15,10 @@ let
   exec = command: "exec ${command}";
   ws = x: "workspace number ${builtins.toString x}";
   moveToWs = x: "move container to ${ws x}";
+
+  colors = {
+    
+  };
 in
 {
   wayland.windowManager.sway = {
@@ -141,6 +145,10 @@ in
       gaps = {
         top = -5;
         inner = 10;
+      };
+
+      colors = {
+
       };
     };
     extraConfig = ''

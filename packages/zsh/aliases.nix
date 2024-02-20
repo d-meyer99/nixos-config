@@ -10,7 +10,7 @@ let
       vnix-conf = "nvim ~/.dotfiles/hosts/default/configuration.nix";
       vnix-home = "nvim ~/.dotfiles/hosts/default/home.nix";
       nixos-test =
-        "sudo nixos-rebuild test --flake/home/dm/.dotfiles#${config.host}";
+        "sudo nixos-rebuild test --flake /home/dm/.dotfiles#${config.host}";
       nixos-switch =
         "sudo nixos-rebuild switch --flake /home/dm/.dotfiles#${config.host}";
       hm-switch = 

@@ -1,5 +1,13 @@
 {pkgs, ...}: let
-  commonPackages = (import ../common-packages.nix) {pkgs = pkgs;};
+  extraPackages = with pkgs; [
+    swww
+    xdg-desktop-portal-hyprland
+  ];
+  allPackages =
+    (
+      import ../common-packages.nix {pkgs = pkgs;}
+    )
+    ++ extraPackages;
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -61,14 +69,10 @@ in {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  environment.systemPackages =
-    commonPackages
-    ++ (with pkgs; [
-      swww
-      xdg-desktop-portal-hyprland
-    ]);
+  # Installed Packages
+  environment.systemPackages = allPackages;
 
+  # Fonts
   fonts.packages = with pkgs; [
     nerdfonts
   ];
