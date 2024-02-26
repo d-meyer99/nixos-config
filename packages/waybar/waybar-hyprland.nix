@@ -1,10 +1,6 @@
 {
   programs.waybar = {
     enable = true;
-    systemd = {
-      enable = true;
-      target = "hyprland-session.target";
-    };
     style = ./waybar.css;
     settings = {
       mainBar = {
