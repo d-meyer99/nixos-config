@@ -110,7 +110,7 @@ in
         "${bindMod [ "s" ]}" = "scratchpad show";
         "${bindMod [ "Shift" "s" ]}" = "move scratchpad";
         "${bindMod [ "space" ]}" = "focus mode_toggle";
-        "${bindMod [ "Shift" "space" ]}" = "input type:keyboard xkb_switch_layout next";
+        "${bindMod [ "Shift" "space" ]}" = "exec change_layout";
         "${bindMod [ "r" ]}" = "mode resize";
       };
 

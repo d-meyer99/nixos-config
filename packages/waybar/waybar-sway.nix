@@ -49,7 +49,7 @@
         };
         "sway/language" = {
           format = "{short} {variant}";
-          on-click = "swaymsg input type:keyboard xkb_switch_layout next";
+          on-click = "change_layout";
         };
       };
     };
