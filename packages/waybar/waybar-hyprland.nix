@@ -18,7 +18,9 @@
           "hyprland/workspaces"
         ];
         modules-right = [
-         "battery"
+          "cpu"
+          "clock"
+          "battery"
         ];
         reload_style_on_change = true;
         "hyprland/workspaces" = {
@@ -49,6 +51,45 @@
           format-charging = "󰂄{capacity:3}%";
           format-plugged = "󰚥{capacity:3}%";
           format-icons = ["󰁻" "󰁽" "󰁿" "󰂁" "󰁹" ];
+        };
+        clock = {
+          format = " {:%a, %b %d, %Y  | %R } ";
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          calendar = {
+            mode = "month";
+            mode-mon-col = 3;
+            weeks-pos = "right";
+            on-scroll = 1;
+            on-click-right = "mode";
+            format = {
+              months = "<span color='#ffcb6b'><b>{}</b></span>";
+              days = "<span color='#ffdddd'><b>{}</b></span>";
+              weeks = "<span color='#444488'><b>W{}</b></span>";
+              weekdays = "<span color='#66aabb'><b>{}</b></span>";
+              today = "<span color='#4288ee'><b><u>{}</u></b></span>";
+            };
+          };
+          actions = {
+            on-click-right = "mode";
+            on-click-forward = "tz_up";
+            on-click-backward = "tz_down";
+            on-scroll-up = "shift_up";
+            on-scroll-down = "shift_down";
+          };
+        };
+        cpu = {
+          interval = 5;
+          format = " {load}% {icon}";
+          format-icons = [
+            "<span color='#69ff94'>▁</span>"
+            "<span color='#66eeff'>▂</span>"
+            "<span color='#ddddff'>▃</span>"
+            "<span color='#ffdddd'>▄</span>"
+            "<span color='#ffcb66'>▅</span>"
+            "<span color='#ffcb33'>▆</span>"
+            "<span color='#f7812c'>▇</span>"
+            "<span color='#ee5168'>█</span>"
+          ];
         };
       };
     };

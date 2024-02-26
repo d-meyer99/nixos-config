@@ -8,6 +8,6 @@ in {
   programs.alacritty.settings = {
     window.opacity = lib.mkForce 0.70;
     font.size = lib.mkForce 12.5;
-    colors = lib.mkForce colors.getAlacrittyColors colors.schemes.blue_toned;
+    colors = lib.mkForce (colors.getAlacrittyColors colors.schemes.blue_toned);
   };
 }

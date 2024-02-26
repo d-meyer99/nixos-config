@@ -12,4 +12,6 @@ in
       dbus-run-session Hyprland
     '';
   };
+
+  home.file.".local/bin/".source = ../../scripts;
 }

@@ -2,13 +2,14 @@ let
   normal = {
     black = "#222222";
     red = "#aa2131";
-    green = "#336823";
-    yellow = "#ffcb00";
+    green = "#337a23";
+    yellow = "#ffcb33";
     blue = "#2266aa";
     magenta = "#b762ca";
     cyan = "#66aabb";
     white = "#dddddd";
   };
+
   bright = {
     black = "#777777";
     red = "#ee5168";
@@ -19,6 +20,7 @@ let
     cyan = "#66eeff";
     white = "#ffffff";
   };
+
   other = {
     orange = "#f7812c";
     purple = "#7721ee";
@@ -30,7 +32,9 @@ let
     steel = "#b2ccd6";
     dark_red = "#773333";
     dark_blue = "#444488";
+    mint = "#69ff94";
   };
+
   red_neon = {
     background = "#332222";
     foreground = "#ffdddd";
@@ -39,21 +43,16 @@ let
     tertiary = other.violet;
     ghost_text = other.dark_red;
   };
+
   blue_toned = {
     background = "#222233";
     foreground = "#ddddff";
     primary = normal.blue;
     secondary = bright.yellow;
     tertiary = normal.cyan;
+    ghost_text = other.dark_blue;
   };
-in {
-  schemes = {
-    red_neon = red_neon;
-    blue_toned = blue_toned;
-  };
-  normal = normal;
-  bright = bright;
-  other = other;
+
   getAlacrittyColors = {
     background,
     foreground,
@@ -81,28 +80,37 @@ in {
     indexed_colors = [
       {
         index = 16;
-        color = "#b7512c";
+        color = other.blood_orange;
       }
       {
         index = 17;
-        color = "#ff5370";
+        color = other.purple;
       }
       {
         index = 18;
-        color = "#303030";
+        color = other.orange;
       }
       {
         index = 19;
-        color = "#353535";
+        color = other.dark_gray;
       }
       {
         index = 20;
-        color = "#b2ccd6";
+        color = other.gray;
       }
       {
         index = 21;
-        color = "#eeffff";
+        color = other.light_gray;
       }
     ];
   };
+in {
+  schemes = {
+    red_neon = red_neon;
+    blue_toned = blue_toned;
+  };
+  normal = normal;
+  bright = bright;
+  other = other;
+  getAlacrittyColors = getAlacrittyColors;
 }

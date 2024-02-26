@@ -24,6 +24,7 @@ with pkgs; [
   fd
   dolphin
   home-manager
+  jq
 
   # Formatters
   stylua

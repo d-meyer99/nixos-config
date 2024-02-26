@@ -1,6 +1,6 @@
 {
   imports = [
-    ../homeConfig.nix
+    ../home-config.nix
     ../../wallpapers/skyline.nix
     ../../packages/hyprland/hyprland.nix
     ../../packages/zsh/thinkpad.nix

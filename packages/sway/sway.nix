@@ -2,6 +2,8 @@
 
 let
   utils = import ../../utils/utils.nix;
+  colors = import ../../utils/colors.nix;
+  color_scheme = colors.schemes.blue_toned;
 
   sway = config.wayland.windowManager.sway;
   mod = sway.config.modifier;
@@ -15,10 +17,6 @@ let
   exec = command: "exec ${command}";
   ws = x: "workspace number ${builtins.toString x}";
   moveToWs = x: "move container to ${ws x}";
-
-  colors = {
-    
-  };
 in
 {
   wayland.windowManager.sway = {
@@ -42,7 +40,7 @@ in
       };
 
       input."*" = {
-        xkb_layout = "pl";
+        xkb_layout = "pl,gb";
         xkb_variant = "''";
       };
 
@@ -103,11 +101,16 @@ in
         # "${bindMod [ "Shift" "0" ]}" = moveToWs 10;
 
         "${bindMod [ "e" ]}" = "layout toggle split";
-        "${bindMod [ "f" ]}" = "fullscreen";
+        "${bindMod [ "t" ]}" = "layout tabbed";
+        "${bindMod [ "Shift" "t" ]}" = "layout stacking";
+        "${bindMod [ "a" ]}" = "focus parent";
+        "${bindMod [ "Shift" "a" ]}" = "focus child";
+        "${bindMod [ "Shift" "f" ]}" = "fullscreen";
+        "${bindMod [ "f" ]}" = "floating toggle";
         "${bindMod [ "s" ]}" = "scratchpad show";
         "${bindMod [ "Shift" "s" ]}" = "move scratchpad";
         "${bindMod [ "space" ]}" = "focus mode_toggle";
-        "${bindMod [ "Shift" "space" ]}" = "floating toggle";
+        "${bindMod [ "Shift" "space" ]}" = "input type:keyboard xkb_switch_layout next";
         "${bindMod [ "r" ]}" = "mode resize";
       };
 
@@ -148,7 +151,27 @@ in
       };
 
       colors = {
-
+        focused = {
+          border = color_scheme.primary;
+          background = color_scheme.background;
+          text = color_scheme.foreground;
+          indicator = color_scheme.tertiary;
+          childBorder = color_scheme.primary;
+        };
+        focusedInactive = {
+          border = colors.other.steel;
+          background = colors.other.steel;
+          text = colors.other.dark_gray;
+          indicator = color_scheme.background;
+          childBorder = colors.other.steel;
+        };
+        unfocused = {
+          border = colors.other.dark_gray;
+          background = color_scheme.background;
+          text = color_scheme.foreground;
+          indicator = color_scheme.background;
+          childBorder = color_scheme.background;
+        };
       };
     };
     extraConfig = ''

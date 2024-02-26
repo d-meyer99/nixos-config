@@ -1,6 +1,6 @@
 * {
-    font-family: OpenDyslexic Nerd Font;
-    font-size: 15px;
+    font-family: Hurmit Nerd Font;
+    font-size: 14px;
 }
 
 window#waybar {
@@ -8,6 +8,7 @@ window#waybar {
 }
 
 label#window{
+    margin-left: 5px;
     padding: 3px 15px 3px 15px;
     border-radius: 20px;
     background: rgba(34, 34, 85, 0.6);
@@ -47,3 +48,24 @@ button {
     background: rgba(34, 34, 85, 0.6);
 }
 
+#clock {
+    border-radius: 20;
+    background: rgba(34, 34, 85, 0.6);
+    color: #ddddff;
+    padding: 0 10px;
+}
+
+#cpu {
+    border-radius: 20;
+    background: rgba(34, 34, 85, 0.6);
+    color: #ddddff;
+    padding: 0 10px;
+    margin-right: 5;
+}
+
+#language {
+    border-radius: 20;
+    background: rgba(34, 34, 85, 0.6);
+    color: #ddddff;
+    padding: 0 10px;
+}

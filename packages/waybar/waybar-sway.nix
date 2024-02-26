@@ -1,5 +1,4 @@
-{lib, ...}:
-{
+{lib, ...}: {
   imports = [
     ./waybar-hyprland.nix
   ];
@@ -10,11 +9,16 @@
     settings = {
       mainBar = {
         margin = lib.mkForce "5";
-        modules-left = lib.mkForce [ 
+        modules-left = lib.mkForce [
+          "sway/language"
           "sway/window"
         ];
-        modules-center = lib.mkForce [ 
+        modules-center = lib.mkForce [
           "sway/workspaces"
+        ];
+        modules-right = lib.mkForce [
+          "cpu"
+          "clock"
         ];
         "sway/workspaces" = {
           persistent-workspaces = {
@@ -36,12 +40,16 @@
           };
         };
         "sway/window" = {
-          format = "{:.100}";
+          format = "{:.80}";
           rewrite = {
             "(.*) - Brave" = " $1";
             "Alacritty" = " $0";
             "" = " Sway";
           };
+        };
+        "sway/language" = {
+          format = "{short} {variant}";
+          on-click = "swaymsg input type:keyboard xkb_switch_layout next";
         };
       };
     };
