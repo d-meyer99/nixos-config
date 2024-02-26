@@ -95,6 +95,14 @@ button {
     margin-right: 5;
 }
 
+#network {
+    border-radius: 20px;
+    background-color: rgba(51, 34, 34, 0.6);
+    color: #ffdddd;
+    padding: 0 13px 0 10px;
+    margin-right: 5;
+}
+
 /* #language { */
 /*     border-radius: 20; */
 /*     background: rgba(34, 34, 85, 0.6); */

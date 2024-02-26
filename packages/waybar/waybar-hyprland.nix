@@ -12,9 +12,10 @@
         position = "top";
         margin = "5 5 0 5";
         modules-left = [
+          "network"
           "hyprland/window"
         ];
-        modules-center = [ 
+        modules-center = [
           "hyprland/workspaces"
         ];
         modules-right = [
@@ -25,7 +26,7 @@
         reload_style_on_change = true;
         "hyprland/workspaces" = {
           persistent-workspaces = {
-            "*" = [ 1 2 3 4 5 ];
+            "*" = [1 2 3 4 5];
           };
           format = "{icon}";
           format-icons = {
@@ -35,7 +36,7 @@
           };
         };
         "hyprland/window" = {
-          format = "{:.75}";
+          format = "{:.60}";
           rewrite = {
             "(.*) - Brave" = " $1";
             "Alacritty" = " $0";
@@ -50,7 +51,7 @@
           };
           format-charging = "󰂄{capacity:3}%";
           format-plugged = "󰚥{capacity:3}%";
-          format-icons = ["󰁻" "󰁽" "󰁿" "󰂁" "󰁹" ];
+          format-icons = ["󰁻" "󰁽" "󰁿" "󰂁" "󰁹"];
         };
         clock = {
           format = " {:%a, %b %d, %Y  | %R } ";
@@ -90,6 +91,14 @@
             "<span color='#f7812c'>▇</span>"
             "<span color='#ee5168'>█</span>"
           ];
+        };
+        network = {
+          format-wifi = "{signalStrength}% ";
+          format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
+          format-disconnected = "Disconnected ⚠";
+          tooltip-format = "{essid}";
+          interval = 7;
+          on-click = "rofi-wifi-menu";
         };
       };
     };
