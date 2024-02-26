@@ -51,6 +51,13 @@
           format = "{short} {variant}";
           on-click = "change_layout";
         };
+        clock.calendar.format = lib.mkForce {
+              months = "<span color='#ffcb6b'><b>{}</b></span>";
+              days = "<span color='#ffdddd'><b>{}</b></span>";
+              weeks = "<span color='#444488'><b>W{}</b></span>";
+              weekdays = "<span color='#66aabb'><b>{}</b></span>";
+              today = "<span color='#4288ee'><b><u>{}</u></b></span>";
+        };
       };
     };
   };

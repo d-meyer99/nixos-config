@@ -64,9 +64,9 @@
             format = {
               months = "<span color='#ffcb6b'><b>{}</b></span>";
               days = "<span color='#ffdddd'><b>{}</b></span>";
-              weeks = "<span color='#444488'><b>W{}</b></span>";
-              weekdays = "<span color='#66aabb'><b>{}</b></span>";
-              today = "<span color='#4288ee'><b><u>{}</u></b></span>";
+              weeks = "<span color='#773333'><b>W{}</b></span>";
+              weekdays = "<span color='#772172'><b>{}</b></span>";
+              today = "<span color='#ee5168'><b><u>{}</u></b></span>";
             };
           };
           actions = {
@@ -79,7 +79,7 @@
         };
         cpu = {
           interval = 5;
-          format = " {load}% {icon}";
+          format = "  {load}% {icon}";
           format-icons = [
             "<span color='#69ff94'>▁</span>"
             "<span color='#66eeff'>▂</span>"
