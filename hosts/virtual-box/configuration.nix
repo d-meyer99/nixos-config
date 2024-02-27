@@ -63,6 +63,7 @@ in {
     isNormalUser = true;
     description = "Dominik Meyer";
     extraGroups = ["networkmanager" "wheel" "vboxsf"];
+    shell = pkgs.zsh;
   };
 
   # Allow unfree packages

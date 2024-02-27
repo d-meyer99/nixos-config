@@ -2,7 +2,7 @@
   imports = [
     ../home-config.nix
     ../../wallpapers/nixos.nix
-    ../../packages/bash/vm.nix
+    ../../packages/zsh/vm.nix
     ../../packages/git/git.nix
     ../../packages/keychain/keychain.nix
     ../../packages/alacritty/alacritty-vm.nix

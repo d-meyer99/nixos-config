@@ -3,9 +3,10 @@ let
   aliases = (import ./aliases.nix) isVm;
 in
 {
-  programs.bash = {
+  programs.zsh = {
     enable = true;
     enableCompletion = true;
+    enableAutosuggestions = true;
     shellAliases = aliases;
     loginExtra = ''
       dbus-run-session Hyprland
