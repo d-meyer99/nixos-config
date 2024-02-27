@@ -25,15 +25,23 @@ with pkgs; [
   dolphin
   home-manager
   jq
+  rustup
+  cargo
+  httpie
+  vscode-extensions.vadimcn.vscode-lldb
+  openssl
+  pkg-config
 
   # Formatters
   stylua
   beautysh
   alejandra
+  rustfmt
 
   # Language servers
   nodePackages.bash-language-server
   lua-language-server
   nil
   nodePackages.vscode-css-languageserver-bin
+  rust-analyzer
 ]
