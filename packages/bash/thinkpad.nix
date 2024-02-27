@@ -3,9 +3,8 @@ let
   aliases = (import ./aliases.nix) isVm;
 in
 {
-  programs.zsh = {
+  programs.bash = {
     enable = true;
-    enableAutosuggestions = true;
     enableCompletion = true;
     shellAliases = aliases;
     loginExtra = ''

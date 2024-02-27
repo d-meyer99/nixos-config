@@ -12,7 +12,6 @@ in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../common-config.nix
   ];
 
   # Bootloader.
@@ -64,7 +63,6 @@ in {
     isNormalUser = true;
     description = "Dominik Meyer";
     extraGroups = ["networkmanager" "wheel"];
-    shell = pkgs.zsh;
   };
 
   # Allow unfree packages

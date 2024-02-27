@@ -7,7 +7,7 @@ in
   imports = [
     ./thinkpad.nix
   ];
-  programs.zsh = {
+  programs.bash = {
     shellAliases = lib.mkForce aliases;
     loginExtra = lib.mkForce ''
       dbus-run-session sway

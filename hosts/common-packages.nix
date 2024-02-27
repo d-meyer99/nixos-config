@@ -29,8 +29,9 @@ with pkgs; [
   cargo
   httpie
   vscode-extensions.vadimcn.vscode-lldb
-  openssl
+  openssl.dev
   pkg-config
+  dbus
 
   # Formatters
   stylua
