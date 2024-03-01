@@ -40,8 +40,8 @@ in
       };
 
       input."*" = {
-        xkb_layout = "pl,gb";
-        xkb_variant = "qwerty, dvorak";
+        xkb_layout = "pl,pl,gb";
+        xkb_variant = ",dvorak,dvorak";
       };
 
       keybindings = {
