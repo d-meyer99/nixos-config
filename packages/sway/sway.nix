@@ -41,7 +41,7 @@ in
 
       input."*" = {
         xkb_layout = "pl,gb";
-        xkb_variant = "''";
+        xkb_variant = "qwerty, dvorak";
       };
 
       keybindings = {
@@ -111,6 +111,7 @@ in
         "${bindMod [ "Shift" "s" ]}" = "move scratchpad";
         "${bindMod [ "space" ]}" = "focus mode_toggle";
         "${bindMod [ "Shift" "space" ]}" = "exec change_layout";
+        "${bindMod [ "Shift" "p" ]}" = "exec change_variant";
         "${bindMod [ "r" ]}" = "mode resize";
       };
 

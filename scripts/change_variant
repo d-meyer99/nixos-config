@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if pgrep sway > /dev/null; then
+    swaymsg input type:keyboard xkb_switch_variant next
+    variant=$(swaymsg -t get_inputs | jq '.[1].xkb_active_variant_name')
+    notify-send "Kayboard Layout" "Changed Variant to: $variant"
+fi
