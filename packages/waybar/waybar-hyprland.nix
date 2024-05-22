@@ -18,6 +18,7 @@
           "cpu"
           "clock"
           "battery"
+          "pulseaudio"
         ];
         reload_style_on_change = true;
         "hyprland/workspaces" = {
@@ -95,6 +96,10 @@
           tooltip-format = "{essid}";
           interval = 7;
           on-click = "rofi-wifi-menu";
+        };
+        pulseaudio = {
+          format = "{volume%}";
+          scroll-step = 1;
         };
       };
     };
