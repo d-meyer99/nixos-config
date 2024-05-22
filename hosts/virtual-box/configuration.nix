@@ -1,7 +1,6 @@
 {pkgs, ...}: let
   extraPackages = with pkgs; [
     gtk3
-    spotify
   ];
   allPackages =
     (

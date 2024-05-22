@@ -2,6 +2,9 @@
   extraPackages = with pkgs; [
     swww
     xdg-desktop-portal-hyprland
+    spotify
+    yt-dlp
+    vlc
   ];
   allPackages =
     (
