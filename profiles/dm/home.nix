@@ -8,5 +8,6 @@
     ../../packages/keychain/keychain.nix
     ../../packages/alacritty/alacritty.nix
     ../../packages/waybar/waybar-hyprland.nix
+    ../../packages/mako/mako.nix
   ];
 }

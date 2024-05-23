@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-wpctl set-volume @DEFAULT_SINK@ .05-
-volume=$(wpctl get-volume @DEFAULT_SINK@).Volume
-notify-send "Volume Up" "Volume: $volume"

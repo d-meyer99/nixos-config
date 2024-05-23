@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+print_volume() {
+    volume=$(wpctl get-volume @DEFAULT_SINK@)
+    notify-send "$1" "Volume: $volume"
+}
+
+up() {
+    wpctl set-volume @DEFAULT_SINK@ .05+
+    print_volume "Volume Up"
+}
+
+down() {
+    wpctl set-volume @DEFAULT_SINK@ .05-
+    print_volume "Volume Down"
+}
+
+mute() {
+    wpctl set-mute @DEFAULT_SINK@ toggle
+    print_volume "Toggle Mute"
+}
+
+while getopts 'udm' OPTION; do
+case "$OPTION" in
+    u)
+        up
+        ;;
+    d)
+        down
+        ;;
+    m)
+        mute
+        ;;
+    *)
+        echo "script usage: $(basename $0) [-u | -d | -m]" >&2
+        exit 1
+        ;;
+esac
+done
+shift "$((OPTIND -1))"

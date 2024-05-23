@@ -125,6 +125,9 @@
 
         "$mainMod, S, togglespecialworkspace, magic"
         "$mainMod SHIFT, S, movetoworkspace, special:magic"
+        ", XF86AudioRaiseVolume, exec, volume -u"
+        ", XF86AudioLowerVolume, exec, volume -d"
+        ", XF86AudioMute, exec, volume -m"
       ];
 
       bindm = [
