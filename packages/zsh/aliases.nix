@@ -16,6 +16,7 @@ let
       hm-switch = 
         "home-manager switch --flake /home/dm/.dotfiles#${config.prof}";
       ll = "ls -la";
+      nshell = "nix-shell --command zsh";
     };
 in
 aliases

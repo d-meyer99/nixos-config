@@ -177,6 +177,7 @@ in
     };
     extraConfig = ''
     for_window [class="^.*"] border pixel 2
+    exec mako
     '';
   };
 }

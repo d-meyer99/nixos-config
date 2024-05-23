@@ -82,10 +82,6 @@ in {
     defaultEditor = true;
   };
 
-  programs.sway = {
-    enable = true;
-  };
-
   programs.zsh.enable = true;
 
   environment.sessionVariables = {
@@ -101,8 +97,10 @@ in {
     nvidia.modesetting.enable = true;
   };
 
+  security.polkit.enable = true;
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  xdg.portal.config.common.default = "*";
   services.xserver.videoDrivers = ["virtualbox" "vmware"];
 
   # Enable bluetooth

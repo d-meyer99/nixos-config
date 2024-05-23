@@ -25,7 +25,6 @@ with pkgs; [
   dolphin
   home-manager
   jq
-<<<<<<< Updated upstream
   rustup
   cargo
   httpie
@@ -33,8 +32,10 @@ with pkgs; [
   openssl.dev
   pkg-config
   dbus
-=======
+<<<<<<< Updated upstream
   widevine-cdm
+=======
+  tmux
 >>>>>>> Stashed changes
 
   # Formatters

@@ -33,6 +33,7 @@ with pkgs; [
   pkg-config
   dbus
   widevine-cdm
+  tmux
 
   # Formatters
   stylua

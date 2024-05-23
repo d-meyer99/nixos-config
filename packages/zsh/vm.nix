@@ -9,8 +9,9 @@ in
   ];
   programs.zsh = {
     shellAliases = lib.mkForce aliases;
-    loginExtra = lib.mkForce ''
-      dbus-run-session sway
-    '';
+    loginExtra = lib.mkForce "
+    if [[ -z $DISPLAY && $TTY = /dev/tty1 ]]; then
+      exec sway
+    fi";
   };
 }
