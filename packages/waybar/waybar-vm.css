@@ -7,14 +7,6 @@ window#waybar {
     background: transparent;
 }
 
-label#window{
-    margin-left: 5px;
-    padding: 3px 15px 3px 15px;
-    border-radius: 20px;
-    background: rgba(34, 34, 85, 0.6);
-    color: #ddddff;
-}
-
 button {
     /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
@@ -24,7 +16,7 @@ button {
 }
 
 #workspaces {
-    border-radius: 20;
+    border-radius: 20px;
     background: rgba(34, 34, 85, 0.6);
 }
 
@@ -49,14 +41,14 @@ button {
 }
 
 #clock {
-    border-radius: 20;
+    border-radius: 20px;
     background: rgba(34, 34, 85, 0.6);
     color: #ddddff;
     padding: 0 10px;
 }
 
 #cpu {
-    border-radius: 20;
+    border-radius: 20px;
     background: rgba(34, 34, 85, 0.6);
     color: #ddddff;
     padding: 0 10px;
@@ -64,7 +56,14 @@ button {
 }
 
 #language {
-    border-radius: 20;
+    border-radius: 20px;
+    background: rgba(34, 34, 85, 0.6);
+    color: #ddddff;
+    padding: 0 10px;
+}
+
+#window {
+    border-radius: 20px;
     background: rgba(34, 34, 85, 0.6);
     color: #ddddff;
     padding: 0 10px;
