@@ -125,4 +125,6 @@ in {
   # networking.firewall.enable = false;
 
   system.stateVersion = "24.05";
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = false;
 }

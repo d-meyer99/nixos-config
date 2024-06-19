@@ -9,5 +9,6 @@
     ../../packages/waybar/waybar-sway.nix
     ../../packages/sway/sway.nix
     ../../packages/mako/mako.nix
+    ../../packages/tmux/tmux.nix
   ];
 }

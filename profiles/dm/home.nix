@@ -9,5 +9,6 @@
     ../../packages/alacritty/alacritty.nix
     ../../packages/waybar/waybar-hyprland.nix
     ../../packages/mako/mako.nix
+    ../../packages/tmux/tmux.nix
   ];
 }
