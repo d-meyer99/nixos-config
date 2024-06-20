@@ -29,7 +29,7 @@ in
       right = "l";
       up = "k";
       down = "j";
-      terminal = "alacritty";
+      terminal = "foot";
 
       output = {
         "*".bg = "~/Wallpaper/wallpaper.jpg fill";

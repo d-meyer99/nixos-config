@@ -10,5 +10,6 @@
     ../../packages/sway/sway.nix
     ../../packages/mako/mako.nix
     ../../packages/tmux/tmux.nix
+    ../../packages/foot/foot.nix
   ];
 }

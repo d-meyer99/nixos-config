@@ -9,10 +9,10 @@ in
   ];
   programs.bash = {
     shellAliases = lib.mkForce aliases;
-    profileExtra = lib.mkForce "
-    if [[ -z $DISPLAY && $TTY = /dev/tty1 ]]; then
+    profileExtra = lib.mkForce ''
+    if [[ -z $DISPLAY && "$(tty)" = "/dev/tty1" ]]; then
       exec sway
-    fi";
+    fi'';
   };
 }
 
