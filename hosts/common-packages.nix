@@ -40,6 +40,7 @@ with pkgs; [
   beautysh
   alejandra
   rustfmt
+  nodePackages.prettier
 
   # Language servers
   nodePackages.bash-language-server

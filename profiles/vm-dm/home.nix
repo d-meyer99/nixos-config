@@ -11,5 +11,6 @@
     ../../packages/mako/mako.nix
     ../../packages/tmux/tmux.nix
     ../../packages/foot/foot.nix
+    ../../packages/oh-my-posh/omp.nix
   ];
 }
