@@ -12,13 +12,8 @@
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
+    name = "Bibata-Modern-Amber";
     size = 22;
-  };
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    TERMINAL = "alacritty";
   };
 
   # Let Home Manager install and manage itself.

@@ -40,8 +40,8 @@ in
       };
 
       input."*" = {
-        xkb_layout = "pl,pl,gb";
-        xkb_variant = ",dvorak,dvorak";
+        xkb_layout = "pl,gb";
+        accel_profile = "flat";
       };
 
       keybindings = {
