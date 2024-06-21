@@ -108,6 +108,15 @@ in {
   schemes = {
     red_neon = red_neon;
     blue_toned = blue_toned;
+    omp = {
+      vm = {
+        "0-prompt" = normal.magenta;
+        "1-path" = bright.blue;
+        "2-git" = normal.cyan;
+        "3-success" = other.mint;
+        "4-error" = bright.red;
+      };
+    };
   };
   normal = normal;
   bright = bright;
