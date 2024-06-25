@@ -5,6 +5,7 @@
     spotify
     yt-dlp
     vlc
+    blueman
   ];
   allPackages =
     (
@@ -118,6 +119,8 @@ in {
     pulse.enable = true;
     jack.enable = true;
   };
+
+  services.blueman.enable = true;
 
   environment.localBinInPath = true;
 
