@@ -1,5 +1,5 @@
 let
-  colors = import ../../utils/colors.nix;
+  colors = import ../../../../utils/colors.nix;
   scheme = colors.schemes.blue_toned;
   removeHash = builtins.substring (1) (-1);
 in {

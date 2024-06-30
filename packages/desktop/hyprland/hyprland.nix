@@ -1,6 +1,6 @@
 {
   home.file = {
-    ".config/hypr/start.sh".source = ../../packages/hyprland/start.sh;
+    ".config/hypr/start.sh".source = ../../../packages/desktop/hyprland/start.sh;
   };
 
   wayland.windowManager.hyprland = {

@@ -1,8 +1,17 @@
+{pkgs, ...}:
 {
   home.sessionVariables = {
     EDITOR = "nvim";
     TERMINAL = "foot";
   };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Amber";
+    size = 22;
+  };
+
   imports = [
     ../home-config.nix
     ../../wallpapers/nixos.nix

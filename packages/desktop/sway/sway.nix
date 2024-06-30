@@ -1,8 +1,8 @@
 { config, ... }:
 
 let
-  utils = import ../../utils/utils.nix;
-  colors = import ../../utils/colors.nix;
+  utils = import ../../../utils/utils.nix;
+  colors = import ../../../utils/colors.nix;
   color_scheme = colors.schemes.blue_toned;
 
   sway = config.wayland.windowManager.sway;

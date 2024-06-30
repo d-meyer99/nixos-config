@@ -1,7 +1,14 @@
+{pkgs, ...}:
 {
   home.sessionVariables = {
     EDITOR = "nvim";
     TERMINAL = "alacritty";
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Amber";
   };
 
   imports = [
@@ -15,5 +22,6 @@
     ../../packages/desktop/waybar/waybar-hyprland.nix
     ../../packages/desktop/mako/mako.nix
     ../../packages/terminal/tmux/tmux.nix
+    ../../packages/terminal/oh-my-posh/omp.nix
   ];
 }

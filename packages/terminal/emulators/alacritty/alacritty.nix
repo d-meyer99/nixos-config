@@ -1,5 +1,5 @@
 let
-  colors = import ../../utils/colors.nix;
+  colors = import ../../../../utils/colors.nix;
 in {
   programs.alacritty = {
     enable = true;
