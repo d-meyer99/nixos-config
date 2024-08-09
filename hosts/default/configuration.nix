@@ -6,6 +6,8 @@
     yt-dlp
     vlc
     blueman
+
+    texlive.combined.scheme-full
   ];
   allPackages =
     (
@@ -79,6 +81,8 @@ in {
   # Fonts
   fonts.packages = with pkgs; [
     nerdfonts
+    corefonts
+    vistafonts
   ];
 
   programs.neovim = {
@@ -125,8 +129,8 @@ in {
   environment.localBinInPath = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 5173 ];
+  networking.firewall.allowedUDPPorts = [ 5173 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

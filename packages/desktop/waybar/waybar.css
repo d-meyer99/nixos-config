@@ -7,6 +7,14 @@ window#waybar {
     background: transparent;
 }
 
+#window {
+    padding: 0 5px 0 5px;
+    border-radius: 20px;
+    color: #ffdddd;
+    font-family: AurulentSansM Nerd Font;
+    background: rgba(51, 34, 34, 0.6);
+}
+
 label#window{
     padding: 0 5px 0 5px;
     border-radius: 20px;

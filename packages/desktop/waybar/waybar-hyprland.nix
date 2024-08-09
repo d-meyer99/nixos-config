@@ -90,11 +90,12 @@
           ];
         };
         network = {
+          format = "Off 󰖪";
           format-wifi = "{signalStrength}% ";
           format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
           format-disconnected = "Disconnected ⚠";
           tooltip-format = "{essid}";
-          interval = 7;
+          interval = 5;
           on-click = "rofi-wifi-menu";
         };
         pulseaudio = {

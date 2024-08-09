@@ -86,6 +86,7 @@
         "$mainMod, P, pseudo"
         "$mainMod, B, togglesplit"
         "$mainMod, F, fullscreen"
+        "$mainMod, I, exec, rofi-wifi-menu"
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"

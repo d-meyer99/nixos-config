@@ -34,6 +34,7 @@ with pkgs; [
   dbus
   widevine-cdm
   tmux
+  yazi
 
   # Formatters
   stylua
@@ -47,5 +48,12 @@ with pkgs; [
   lua-language-server
   nil
   nodePackages.vscode-css-languageserver-bin
+  nodePackages.vscode-html-languageserver-bin
+  nodePackages.vscode-json-languageserver-bin
+  nodePackages.javascript-typescript-langserver
+  nodePackages.typescript-language-server
+  nodePackages.svelte-language-server
   rust-analyzer
+  typescript
+
 ]
