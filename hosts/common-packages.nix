@@ -13,7 +13,7 @@ with pkgs; [
   libnotify
   alacritty
   rofi-wayland
-  xclip
+  wl-clipboard
   brave
   gcc
   zip
