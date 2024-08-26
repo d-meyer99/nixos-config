@@ -36,6 +36,7 @@ with pkgs; [
   widevine-cdm
   tmux
   yazi
+  diesel-cli
 
   # Formatters
   stylua
@@ -43,6 +44,7 @@ with pkgs; [
   alejandra
   rustfmt
   nodePackages.prettier
+  sqlfluff
 
   # Language servers
   nodePackages.bash-language-server
@@ -56,5 +58,5 @@ with pkgs; [
   nodePackages.svelte-language-server
   rust-analyzer
   typescript
-
+  sqls
 ]
