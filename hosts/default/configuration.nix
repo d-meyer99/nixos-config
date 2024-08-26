@@ -6,6 +6,7 @@
     yt-dlp
     vlc
     blueman
+    discord
 
     texlive.combined.scheme-full
   ];
@@ -109,12 +110,15 @@ in {
   };
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-hyprland];
+  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-gtk
+    pkgs.xdg-desktop-portal-hyprland
+  ];
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;
 
-  sound.enable = true;
+  # sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -129,8 +133,8 @@ in {
   environment.localBinInPath = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 5173 ];
-  networking.firewall.allowedUDPPorts = [ 5173 ];
+  networking.firewall.allowedTCPPorts = [5173 4173];
+  networking.firewall.allowedUDPPorts = [5173 4173];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

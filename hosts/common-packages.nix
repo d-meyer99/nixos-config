@@ -30,6 +30,7 @@ with pkgs; [
   httpie
   vscode-extensions.vadimcn.vscode-lldb
   openssl.dev
+  openssl
   pkg-config
   dbus
   widevine-cdm
@@ -47,9 +48,9 @@ with pkgs; [
   nodePackages.bash-language-server
   lua-language-server
   nil
-  nodePackages.vscode-css-languageserver-bin
-  nodePackages.vscode-html-languageserver-bin
-  nodePackages.vscode-json-languageserver-bin
+  nodePackages.vscode-langservers-extracted
+  # nodePackages.vscode-html-languageserver-bin
+  # nodePackages.vscode-json-languageserver-bin
   nodePackages.javascript-typescript-langserver
   nodePackages.typescript-language-server
   nodePackages.svelte-language-server
