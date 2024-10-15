@@ -37,6 +37,7 @@ with pkgs; [
   tmux
   yazi
   diesel-cli
+  htop
 
   # Formatters
   stylua
