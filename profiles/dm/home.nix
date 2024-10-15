@@ -23,5 +23,6 @@
     ../../packages/desktop/mako/mako.nix
     ../../packages/terminal/tmux/tmux.nix
     ../../packages/terminal/oh-my-posh/omp.nix
+    ../../packages/other/yt-dlp.nix
   ];
 }
