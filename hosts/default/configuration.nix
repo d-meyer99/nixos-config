@@ -7,6 +7,7 @@
     vlc
     blueman
     discord
+    _1password-gui
 
     texlive.combined.scheme-full
   ];
