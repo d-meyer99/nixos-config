@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+if ! tmux has-session -t main 2>/dev/null; then
+	tmux new -d -s main -c ~/sources/ >/dev/null
+fi
+
+if ! tmux has-session -t nixconfig 2>/dev/null; then
+	tmux new -d -s nixconfig -c ~/.dotfiles/ >/dev/null
+	tmux splitw -v -p 10 -t nixconfig:0.0 -c ~/.dotfiles/
+	tmux splitw -h -p 10 -t nixconfig:0.1 -c ~/.dotfiles/
+	tmux clock -t nixconfig:0.2
+	tmux select-pane -t nixconfig:0.1
+	tmux select-pane -t nixconfig:0.0
+	tmux send-keys -t nixconfig:0.0 'v flake.nix' Enter
+fi
+
+if ! tmux has-session -t nvimconfig 2>/dev/null; then
+	tmux new -d -s nvimconfig -c ~/.config/nvim/ >/dev/null
+	tmux send-keys -t nvimconfig:0 'v init.lua' Enter
+fi
+
+if ! tmux has-session -t vimwiki 2>/dev/null; then
+	tmux new -d -s vimwiki -c ~/ >/dev/null
+	tmux send-keys -t vimwiki:0 'v init.lua' Enter ' ww'
+fi
+
+tmux a -t main

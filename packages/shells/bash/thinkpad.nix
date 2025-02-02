@@ -12,6 +12,9 @@ in {
       fi'';
     bashrcExtra = ''
       PS1="\[\e[38;5;80m\]bash:\[\e[38;5;182;1m\]\w\$\[\e[0m\] ";
+      if [[ -z $TMUX ]]; then
+          tmux-init;
+      fi
     '';
   };
 

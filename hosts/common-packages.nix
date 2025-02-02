@@ -38,6 +38,7 @@ with pkgs; [
   yazi
   diesel-cli
   htop
+  go
 
   # Formatters
   stylua
@@ -60,4 +61,5 @@ with pkgs; [
   rust-analyzer
   typescript
   sqls
+  gopls
 ]
