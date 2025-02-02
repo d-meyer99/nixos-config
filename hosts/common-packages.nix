@@ -39,6 +39,7 @@ with pkgs; [
   diesel-cli
   htop
   go
+  jdk
 
   # Formatters
   stylua
