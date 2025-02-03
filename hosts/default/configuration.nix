@@ -9,6 +9,7 @@
     discord
     _1password-gui
 
+    libsForQt5.qt5ct
     texlive.combined.scheme-full
   ];
   allPackages =
@@ -132,6 +133,11 @@ in {
   services.blueman.enable = true;
 
   environment.localBinInPath = true;
+
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+  };
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [5173 4173];

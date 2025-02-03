@@ -9,7 +9,7 @@
     xwayland.enable = true;
     settings = {
       monitor = [",preferred,auto,auto"];
-      env = ["XCURSOR_SIZE,32"];
+      env = ["XCURSOR_SIZE,32" "QT_QPA_PLATFORMTHEME,qt5ct"];
       input = {
         kb_layout = "pl";
         kb_variant = "";

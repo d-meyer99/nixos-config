@@ -40,6 +40,7 @@ with pkgs; [
   htop
   go
   jdk
+  docker
 
   # Formatters
   stylua
