@@ -9,6 +9,7 @@
     discord
     _1password-gui
 
+    dconf
     libsForQt5.qt5ct
     texlive.combined.scheme-full
   ];
@@ -71,7 +72,7 @@ in {
   users.users.dm = {
     isNormalUser = true;
     description = "Dominik Meyer";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     shell = pkgs.bash;
   };
 
@@ -99,6 +100,7 @@ in {
   };
 
   programs.zsh.enable = true;
+  programs.dconf.enable = true;
 
   environment.sessionVariables = {
     # If cursor becomes invisible
@@ -108,7 +110,7 @@ in {
   };
 
   hardware = {
-    opengl.enable = true;
+    graphics.enable = true;
   };
 
   xdg.portal.enable = true;
@@ -138,6 +140,13 @@ in {
     enable = true;
     enableOnBoot = true;
   };
+  # virtualisation.docker = {
+  #   enable = true;
+  #   enableOnBoot = true;
+  #   daemon.settings = {
+  #     userland-proxy = false;
+  #   };
+  # };
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [5173 4173];

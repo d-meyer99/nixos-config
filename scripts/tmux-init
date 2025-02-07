@@ -21,7 +21,7 @@ fi
 
 if ! tmux has-session -t vimwiki 2>/dev/null; then
 	tmux new -d -s vimwiki -c ~/ >/dev/null
-	tmux send-keys -t vimwiki:0 'v init.lua' Enter ' ww'
+	tmux send-keys -t vimwiki:0 'v' Enter ' ww'
 fi
 
 tmux a -t main

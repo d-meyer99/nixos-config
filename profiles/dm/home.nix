@@ -10,6 +10,24 @@
     name = "Bibata-Modern-Amber";
   };
 
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.flat-remix-gtk;
+      name = "Flat-Remix-GTK-Grey-Darkest";
+    };
+
+    iconTheme = {
+      package = pkgs.dracula-icon-theme;
+      name = "Adwaita";
+    };
+
+    font = {
+      name = "Sans";
+      size = 11;
+    };
+  };
+
   imports = [
     ../home-config.nix
     ../../wallpapers/skyline.nix

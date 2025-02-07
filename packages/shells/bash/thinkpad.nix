@@ -15,6 +15,7 @@ in {
       if [[ -z $TMUX ]]; then
           tmux-init;
       fi
+      export GOTMPDIR=/home/dm/.go/
     '';
   };
 

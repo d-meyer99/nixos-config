@@ -41,6 +41,7 @@ with pkgs; [
   go
   jdk
   docker
+  delve
 
   # Formatters
   stylua
@@ -64,4 +65,5 @@ with pkgs; [
   typescript
   sqls
   gopls
+  docker-ls
 ]
