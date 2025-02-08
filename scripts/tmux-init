@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if ! tmux has-session -t main 2>/dev/null; then
-	tmux new -d -s main -c ~/sources/ >/dev/null
+	tmux new -d -s main -c ~/ >/dev/null
 fi
 
 if ! tmux has-session -t nixconfig 2>/dev/null; then

@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+if [[ -z $1 ]]; then
+	echo "Need parameter for project to open"
+	exit
+fi
+
+project=${1%/}
+projectPath="$HOME/sources/$project/"
+
+if ! [[ -d "$projectPath" ]]; then
+	echo "$1 is not a project directory"
+	exit
+fi
+
+echo "$project"
+if ! tmux has-session -t "$project" 2>/dev/null; then
+	tmux new -d -s "$project" -c "$projectPath">/dev/null
+	tmux splitw -v -p 20 -t "$project":0.0 -c "$projectPath"
+	tmux splitw -h -p 30 -t "$project":0.1 -c "$projectPath"
+	tmux clock -t "$project":0.2
+	tmux select-pane -t "$project":0.1
+	tmux select-pane -t "$project":0.0
+	tmux send-keys -t "$project":0.0 'v' Enter Space '-'
+fi
+
+if [[ -z $TMUX ]]; then
+	tmux a -t "$project";
+else
+	tmux switch -t "$project";
+fi
