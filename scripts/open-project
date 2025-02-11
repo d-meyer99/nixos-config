@@ -20,6 +20,7 @@ if ! tmux has-session -t "$project" 2>/dev/null; then
 	tmux splitw -h -p 30 -t "$project":0.1 -c "$projectPath"
 	tmux clock -t "$project":0.2
 	tmux select-pane -t "$project":0.1
+	tmux send-keys -t "$project":0.1 'source ./scripts/env' Enter 'clear' Enter
 	tmux select-pane -t "$project":0.0
 	tmux send-keys -t "$project":0.0 'v' Enter Space '-'
 fi
