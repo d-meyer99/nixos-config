@@ -8,6 +8,7 @@
     terminal = "tmux-256color";
     mouse = true;
     clock24 = true;
+    baseIndex = 1;
     extraConfig = ''
       set -g default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"

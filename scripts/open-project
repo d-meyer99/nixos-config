@@ -16,13 +16,13 @@ fi
 echo "$project"
 if ! tmux has-session -t "$project" 2>/dev/null; then
 	tmux new -d -s "$project" -c "$projectPath">/dev/null
-	tmux splitw -v -p 20 -t "$project":0.0 -c "$projectPath"
-	tmux splitw -h -p 30 -t "$project":0.1 -c "$projectPath"
-	tmux clock -t "$project":0.2
-	tmux select-pane -t "$project":0.1
-	tmux send-keys -t "$project":0.1 'source ./scripts/env' Enter 'clear' Enter
-	tmux select-pane -t "$project":0.0
-	tmux send-keys -t "$project":0.0 'v' Enter Space '-'
+	tmux splitw -v -p 20 -t "$project":1.1 -c "$projectPath"
+	tmux splitw -h -p 30 -t "$project":1.2 -c "$projectPath"
+	tmux clock -t "$project":1.3
+	tmux select-pane -t "$project":1.2
+	tmux send-keys -t "$project":1.2 'source ./scripts/env' Enter 'clear' Enter
+	tmux select-pane -t "$project":1.1
+	tmux send-keys -t "$project":1.1 'v' Enter Space '-'
 fi
 
 if [[ -z $TMUX ]]; then
