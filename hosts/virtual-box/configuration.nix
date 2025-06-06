@@ -74,7 +74,8 @@ in {
 
   # Fonts
   fonts.packages = with pkgs; [
-    nerdfonts
+    nerd-fonts.sauce-code-pro
+    nerd-fonts.aurulent-sans-mono
   ];
 
   programs.neovim = {

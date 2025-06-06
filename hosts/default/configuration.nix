@@ -8,6 +8,7 @@
     blueman
     discord
     _1password-gui
+    libreoffice
 
     dconf
     libsForQt5.qt5ct
@@ -83,8 +84,9 @@ in {
   environment.systemPackages = allPackages;
 
   # Fonts
-  fonts.packages = with pkgs; [
-    nerdfonts
+  fonts.packages = with pkgs; with pkgs.nerd-fonts; [
+    sauce-code-pro
+    aurulent-sans-mono
     corefonts
     vistafonts
   ];

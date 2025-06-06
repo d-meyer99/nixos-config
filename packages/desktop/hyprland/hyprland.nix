@@ -85,8 +85,9 @@
         "$mainMod, O, exec, rofi -show drun -show-icons"
         "$mainMod, P, pseudo"
         "$mainMod, B, togglesplit"
-        "$mainMod, F, fullscreen"
         "$mainMod, I, exec, rofi-wifi-menu"
+        "$mainMod, F, exec, toggle_waybar"
+        "$mainMod SHIFT, F, fullscreen"
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"

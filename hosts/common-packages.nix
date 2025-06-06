@@ -22,7 +22,7 @@ with pkgs; [
   networkmanagerapplet
   ripgrep
   fd
-  dolphin
+  kdePackages.dolphin
   home-manager
   jq
   rustup
