@@ -7,6 +7,14 @@ window#waybar {
     background: transparent;
 }
 
+window#waybar.hidden {
+    /* opacity: 0; */
+    /* margin: -100px; */
+    /* padding: 0; */
+    /* border: none; */
+    display: none;
+}
+
 #window {
     padding: 0 5px 0 5px;
     border-radius: 20px;
@@ -15,7 +23,7 @@ window#waybar {
     background: rgba(51, 34, 34, 0.6);
 }
 
-label#window{
+label#window {
     padding: 0 5px 0 5px;
     border-radius: 20px;
     background-color: rgba(51, 34, 34, 0.6);
@@ -39,7 +47,7 @@ button {
 #workspaces button {
     padding: 0 3px 0 0;
     background: transparent;
-    color:  #ffdddd;
+    color: #ffdddd;
 }
 
 #workspaces button:hover {
@@ -57,12 +65,12 @@ button {
 }
 
 #mode {
-    background-color: #64727D;
+    background-color: #64727d;
     border-bottom: 3px solid #ffffff;
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: #64727d;
 }
 
 #battery {
@@ -82,7 +90,8 @@ button {
     background-color: rgba(119, 51, 51, 0.7);
 }
 
-#battery.charging, #battery.plugged {
+#battery.charging,
+#battery.plugged {
     color: #83c85d;
     background-color: rgba(51, 104, 35, 0.45);
 }

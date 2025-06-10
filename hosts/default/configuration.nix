@@ -84,11 +84,16 @@ in {
   environment.systemPackages = allPackages;
 
   # Fonts
-  fonts.packages = with pkgs; with pkgs.nerd-fonts; [
-    sauce-code-pro
-    aurulent-sans-mono
-    corefonts
+  # fonts.packages = with pkgs; with pkgs.nerd-fonts; [
+  #   sauce-code-pro
+  #   aurulent-sans-mono
+  #   corefonts
+  #   vistafonts
+  # ];
+
+  fonts.packages = with pkgs; [
     vistafonts
+    nerdfonts
   ];
 
   programs.neovim = {

@@ -8,6 +8,7 @@
         position = "top";
         margin = "5 5 0 5";
         modules-left = [
+          "custom/visibility"
           "network"
           "hyprland/window"
         ];
@@ -21,6 +22,12 @@
           "pulseaudio"
         ];
         reload_style_on_change = true;
+        "custom/visibility" = {
+          exec = "check-hidden";
+          "return-type" = "json";
+          interval = 1;
+          signal = 8;
+        };
         "hyprland/workspaces" = {
           persistent-workspaces = {
             "*" = [1 2 3 4 5];

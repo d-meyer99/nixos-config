@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ -f /tmp/waybar-hidden ]]; then
+  echo '{"class": "hidden"}'
+else
+  echo '{"class": ""}'
+fi

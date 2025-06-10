@@ -9,7 +9,7 @@ with pkgs; [
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     })
   )
-  mako
+  # mako
   libnotify
   alacritty
   rofi-wayland

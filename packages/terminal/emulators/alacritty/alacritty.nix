@@ -25,7 +25,7 @@ in {
       cursor = {
         style = "Underline";
       };
-      live_config_reload = true;
+      general.live_config_reload = true;
       keyboard.bindings = [
         {
           key = "Key0";
