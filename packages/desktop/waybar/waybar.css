@@ -7,14 +7,6 @@ window#waybar {
     background: transparent;
 }
 
-window#waybar.hidden {
-    /* opacity: 0; */
-    /* margin: -100px; */
-    /* padding: 0; */
-    /* border: none; */
-    display: none;
-}
-
 #window {
     padding: 0 5px 0 5px;
     border-radius: 20px;

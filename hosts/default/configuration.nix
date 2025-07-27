@@ -9,10 +9,14 @@
     discord
     _1password-gui
     libreoffice
+    pinta
 
     dconf
     libsForQt5.qt5ct
     texlive.combined.scheme-full
+    texlab
+    tree-sitter
+    zathura
   ];
   allPackages =
     (

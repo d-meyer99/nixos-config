@@ -6,6 +6,10 @@
 
   home.packages = with pkgs; [
     keychain
+    (pkgs.symlinkJoin {
+      name = "latexindent";
+      paths = [pkgs.latexindent-fixed];
+    })
   ];
 
   # Let Home Manager install and manage itself.

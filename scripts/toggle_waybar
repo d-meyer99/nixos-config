@@ -1,18 +1,9 @@
 #!/usr/bin/env bash
 
-# WAYBAR_PID=$(pidof waybar)
+WAYBAR_PID=$(pidof waybar)
 
-# if [ -n "$WAYBAR_PID" ]; then
-#     kill "$WAYBAR_PID"
-# else
-#     waybar &
-# fi
-state_file="/tmp/waybar-hidden"
-
-if [[ -f "$state_file" ]]; then
-  rm "$state_file"
+if [ -n "$WAYBAR_PID" ]; then
+    kill "$WAYBAR_PID"
 else
-  touch "$state_file"
+    waybar &
 fi
-
-pkill -SIGRTMIN+8 waybar
