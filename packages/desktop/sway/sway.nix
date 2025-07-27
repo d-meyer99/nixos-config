@@ -42,7 +42,11 @@ in
       input."*" = {
         xkb_layout = "pl,gb";
         accel_profile = "flat";
+        pointer_accel = "0.0";
       };
+
+      # input."33006:51966:VirtualBox_mouse_integration" = {
+      # };
 
       keybindings = {
         "${bindMod ["Return"]}" = exec term;

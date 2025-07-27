@@ -74,9 +74,8 @@ in {
 
   # Fonts
   fonts.packages = with pkgs; [
-    nerd-fonts.sauce-code-pro
-    nerd-fonts.aurulent-sans-mono
-  ];
+    vistafonts
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues nerd-fonts);
 
   programs.neovim = {
     enable = true;
