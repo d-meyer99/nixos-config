@@ -88,17 +88,11 @@ in {
   environment.systemPackages = allPackages;
 
   # Fonts
-  # fonts.packages = with pkgs; with pkgs.nerd-fonts; [
-  #   sauce-code-pro
-  #   aurulent-sans-mono
-  #   corefonts
-  #   vistafonts
-  # ];
-
-  fonts.packages = with pkgs; [
-    vistafonts
-    nerdfonts
-  ];
+  fonts.packages = with pkgs;
+    [
+      vistafonts
+    ]
+    ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues nerd-fonts);
 
   programs.neovim = {
     enable = true;
