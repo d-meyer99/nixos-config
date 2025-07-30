@@ -9,7 +9,6 @@ with pkgs; [
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     })
   )
-  # mako
   libnotify
   alacritty
   rofi-wayland
@@ -42,6 +41,7 @@ with pkgs; [
   jdk
   docker
   delve
+  tree
 
   # Formatters
   stylua
@@ -56,8 +56,6 @@ with pkgs; [
   lua-language-server
   nil
   nodePackages.vscode-langservers-extracted
-  # nodePackages.vscode-html-languageserver-bin
-  # nodePackages.vscode-json-languageserver-bin
   nodePackages.javascript-typescript-langserver
   nodePackages.typescript-language-server
   nodePackages.svelte-language-server

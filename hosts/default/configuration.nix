@@ -20,7 +20,7 @@
   ];
   allPackages =
     (
-      import ../common-packages.nix {pkgs = pkgs;}
+      import ../common/common-packages.nix {pkgs = pkgs;}
     )
     ++ extraPackages;
 in {
