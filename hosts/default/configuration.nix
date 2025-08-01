@@ -17,6 +17,7 @@
     texlab
     tree-sitter
     zathura
+    wl-clipboard
   ];
   allPackages =
     (

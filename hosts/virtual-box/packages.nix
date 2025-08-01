@@ -4,6 +4,9 @@ let
     gtk3
     foot
     mesa
+    xclip
+    feh
+    polybarFull
   ];
   allPackages = import ../common/common-packages.nix { inherit pkgs; } ++ extraPackages;
 in
