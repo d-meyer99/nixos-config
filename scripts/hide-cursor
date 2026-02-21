@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# ~/.local/bin/hypr-hide-cursor
+# Toggle cursor‑hiding on Hyprland using unclutter‑xfixes
+
+FLAG="$HOME/.cache/hypr-hide-cursor-enabled"
+
+# Helper: try to stop any running unclutter‑xfixes instance
+stop_unclutter() {
+    # First try pkill (most common)
+    if command -v pkill >/dev/null 2>&1; then
+        pkill -x unclutter-xfixes 2>/dev/null || true
+    else
+        # Fallback: find PIDs with pgrep and kill them
+        if command -v pgrep >/dev/null 2>&1; then
+            pids=$(pgrep -x unclutter-xfixes) || true
+            if [ -n "$pids" ]; then
+                kill "$pids" 2>/dev/null || true
+            fi
+        fi
+    fi
+}
+
+if [ -f "$FLAG" ]; then
+    # Cursor is currently hidden → disable hiding
+    rm -f "$FLAG"
+    stop_unclutter
+else
+    # Enable hiding
+    mkdir -p "$(dirname "$FLAG")"
+    touch "$FLAG"
+
+    # Start unclutter‑xfixes with an immediate hide (idle 0)
+    # The `-root` flag works under Wayland via XWayland
+    unclutter-xfixes -idle 0 -root &
+fi

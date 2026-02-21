@@ -11,7 +11,7 @@
       monitor = [",preferred,auto,auto"];
       env = ["XCURSOR_SIZE,32" "QT_QPA_PLATFORMTHEME,qt5ct"];
       input = {
-        kb_layout = "pl";
+        kb_layout = "pl,gb";
         kb_variant = "";
         kb_model = "";
         kb_options = "";
@@ -132,6 +132,8 @@
         ", XF86AudioRaiseVolume, exec, volume -u"
         ", XF86AudioLowerVolume, exec, volume -d"
         ", XF86AudioMute, exec, volume -m"
+        "$mainMod SHIFT, SPACE, exec, hyprctl switchxkblayout current next"
+        "$mainMod, C, exec, hide-cursor"
       ];
 
       bindm = [
