@@ -26,6 +26,8 @@ with pkgs; [
   jq
   rustup
   cargo
+  cargo-tauri
+  trunk
   httpie
   vscode-extensions.vadimcn.vscode-lldb
   openssl.dev
@@ -42,6 +44,7 @@ with pkgs; [
   docker
   delve
   tree
+  wrapGAppsHook4
 
   # Formatters
   stylua
@@ -64,4 +67,8 @@ with pkgs; [
   sqls
   gopls
   docker-ls
+
+  # build inputs
+  librsvg
+  webkitgtk_4_1
 ]

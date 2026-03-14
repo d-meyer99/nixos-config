@@ -1,10 +1,5 @@
 {pkgs, ...}:
 {
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    TERMINAL = "alacritty";
-  };
-
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;

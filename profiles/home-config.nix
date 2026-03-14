@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.username = "dm";
   home.homeDirectory = "/home/dm";
 
@@ -7,6 +8,12 @@
   home.packages = with pkgs; [
     keychain
   ];
+
+  home.sessionVariables =
+    {
+      EDITOR = "nvim";
+      TERMINAL = "alacritty";
+    };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
