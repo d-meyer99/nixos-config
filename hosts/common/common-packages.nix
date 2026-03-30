@@ -45,9 +45,6 @@ with pkgs; [
   delve
   tree
   wrapGAppsHook4
-  ghc
-  cabal-install
-  unclutter-xfixes
 
   # Formatters
   stylua
@@ -74,5 +71,4 @@ with pkgs; [
   # build inputs
   librsvg
   webkitgtk_4_1
-  haskell-language-server
 ]

@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   extraPackages = with pkgs; [
     swww
     xdg-desktop-portal-hyprland
@@ -18,13 +19,16 @@
     tree-sitter
     zathura
     wl-clipboard
+
+    # Haskell
+    ghc
+    cabal-install
+    unclutter-xfixes
+    haskell-language-server
   ];
-  allPackages =
-    (
-      import ../common/common-packages.nix {pkgs = pkgs;}
-    )
-    ++ extraPackages;
-in {
+  allPackages = (import ../common/common-packages.nix { pkgs = pkgs; }) ++ extraPackages;
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -38,7 +42,10 @@ in {
   networking.hostName = "thinkpad"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -78,7 +85,11 @@ in {
   users.users.dm = {
     isNormalUser = true;
     description = "Dominik Meyer";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.bash;
   };
 
@@ -89,7 +100,8 @@ in {
   environment.systemPackages = allPackages;
 
   # Fonts
-  fonts.packages = with pkgs;
+  fonts.packages =
+    with pkgs;
     [
       vistafonts
     ]
