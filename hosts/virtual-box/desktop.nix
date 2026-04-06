@@ -1,15 +1,12 @@
-{ ... }:
+{ pkgs, ... }:
 {
   services.xserver = {
     enable = true;
-    displayManager.lightdm.enable = true;
-    windowManager.i3.enable = true;
     xkb.layout = "pl";
-    videoDrivers = [
-      "virtualBox"
-      "vmware"
-    ];
+    xkb.variant = "";
   };
+
+  programs.sway.enable = true;
 
   hardware.graphics = {
     enable = true;

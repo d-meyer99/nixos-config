@@ -5,7 +5,6 @@
     customPaneNavigationAndResize = true;
     shortcut = "a";
     escapeTime = 0;
-    terminal = "tmux-256color";
     mouse = true;
     clock24 = true;
     baseIndex = 1;

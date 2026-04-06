@@ -5,6 +5,13 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "nix-shell",
+          "style": "powerline",
+          "foreground": "$ENV$",
+          "background": "transparent",
+          "template": "(󱄅-{{ .Type }}) "
+        },
+        {
           "foreground": "$PROMPT$",
           "style": "plain",
           "template": "➜",
@@ -44,15 +51,22 @@
           "style": "plain",
           "template": "{{ if gt .Code 0 }}\uf00d {{ .Meaning }}{{ else }}{{ end }}",
           "type": "exit"
-        },
-        {
-          "foreground": "$PROMPT$",
-          "style": "plain",
-          "template": " <b>$</b>",
-          "type": "text"
         }
       ],
       "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "$PROMPT$",
+          "style": "plain",
+          "template": "<b>$</b>",
+          "type": "text"
+        }
+      ],
+      "type": "prompt",
+      "newline": true
     }
   ],
   "final_space": true,

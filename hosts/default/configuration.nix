@@ -16,9 +16,7 @@ let
     libsForQt5.qt5ct
     texlive.combined.scheme-full
     texlab
-    tree-sitter
     zathura
-    wl-clipboard
 
     # Haskell
     ghc

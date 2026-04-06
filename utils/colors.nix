@@ -115,6 +115,7 @@ in {
         "2-git" = normal.cyan;
         "3-success" = other.mint;
         "4-error" = bright.red;
+        "5-env" = other.steel;
       };
     };
   };

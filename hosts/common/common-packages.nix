@@ -1,6 +1,6 @@
 {pkgs, ...}:
 with pkgs; [
-  neofetch
+  fastfetch
   neovim
   git
   wget
@@ -11,7 +11,7 @@ with pkgs; [
   )
   libnotify
   alacritty
-  rofi-wayland
+  rofi
   wl-clipboard
   brave
   gcc
@@ -45,28 +45,31 @@ with pkgs; [
   delve
   tree
   wrapGAppsHook4
+  sqlite
+  tree-sitter
 
   # Formatters
   stylua
   beautysh
   alejandra
   rustfmt
-  nodePackages.prettier
+  prettier
   sqlfluff
 
   # Language servers
-  nodePackages.bash-language-server
+  bash-language-server
   lua-language-server
   nil
-  nodePackages.vscode-langservers-extracted
-  nodePackages.javascript-typescript-langserver
-  nodePackages.typescript-language-server
-  nodePackages.svelte-language-server
+  vscode-langservers-extracted
+  javascript-typescript-langserver
+  typescript-language-server
+  svelte-language-server
   rust-analyzer
   typescript
   sqls
   gopls
   docker-ls
+  emmet-ls
 
   # build inputs
   librsvg

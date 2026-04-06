@@ -9,11 +9,14 @@
     keychain
   ];
 
-  home.sessionVariables =
-    {
-      EDITOR = "nvim";
-      TERMINAL = "alacritty";
-    };
+  home.sessionPath = [
+    "$HOME/.cargo/bin/"
+  ];
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    TERMINAL = "alacritty";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -1,12 +1,17 @@
 {
   programs.git = {
     enable = true;
-    userName = "d-meyer99";
-    userEmail = "d.meyer99@hotmail.com";
-    aliases = {
-      pu = "push";
-      co = "checkout";
-      cm = "commit";
+    settings = {
+      user = {
+        name = "d-meyer99";
+        email = "d.meyer99@hotmail.com";
+      };
+      aliases = {
+        pu = "push";
+        co = "checkout";
+        cm = "commit";
+      };
     };
+    signing.format = "openpgp";
   };
 }
