@@ -17,7 +17,7 @@ in {
       cursor = {
         style = "underline";
       };
-      colors = {
+      colors-dark = {
         alpha = 0.7;
         foreground = removeHash scheme.foreground;
         background = removeHash scheme.background;

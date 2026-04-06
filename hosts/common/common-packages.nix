@@ -13,7 +13,6 @@ with pkgs; [
   alacritty
   rofi
   wl-clipboard
-  brave
   gcc
   zip
   unzip

@@ -1,4 +1,4 @@
-{lib, ...}:
+{ lib, ... }:
 let
   isVm = true;
   aliases = (import ./aliases.nix) isVm;
@@ -9,7 +9,10 @@ in
   ];
   programs.bash = {
     shellAliases = lib.mkForce aliases;
-    profileExtra = lib.mkForce '''';
+    profileExtra = lib.mkForce ''
+      if [[ -z $DISPLAY && "$(tty)" = "/dev/tty1" ]]; then
+        exec sway
+      fi
+    '';
   };
 }
-
