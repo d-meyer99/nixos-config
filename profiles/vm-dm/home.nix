@@ -16,13 +16,13 @@
   imports = [
     ../home-config.nix
     ../../wallpapers/nixos.nix
-    ../../packages/desktop/sway/sway.nix
+    ../../packages/desktop/i3/i3.nix
     ../../packages/shells/bash/vm.nix
     ../../packages/git/git.nix
     ../../packages/keychain/keychain.nix
     ../../packages/desktop/mako/mako.nix
     ../../packages/terminal/tmux/tmux.nix
-    ../../packages/terminal/emulators/foot/foot.nix
+    ../../packages/terminal/emulators/alacritty/alacritty-vm.nix
     ../../packages/terminal/oh-my-posh/omp.nix
   ];
 }

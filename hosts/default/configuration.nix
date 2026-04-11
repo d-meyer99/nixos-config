@@ -11,7 +11,6 @@ let
     _1password-gui
     libreoffice
     pinta
-    brave
 
     dconf
     libsForQt5.qt5ct

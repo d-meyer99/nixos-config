@@ -1,32 +1,36 @@
 #!/usr/bin/env bash
 
 if [[ -z $1 ]]; then
-	echo "Need parameter for project to open"
-	exit
+    echo "Need parameter for project to open"
+    exit
 fi
 
 project=${1%/}
 projectPath="$HOME/sources/$project/"
 
 if ! [[ -d "$projectPath" ]]; then
-	echo "$1 is not a project directory"
-	exit
+    echo "$1 is not a project directory"
+    exit
 fi
 
 echo "$project"
 if ! tmux has-session -t "$project" 2>/dev/null; then
-	tmux new -d -s "$project" -c "$projectPath">/dev/null
-	tmux splitw -v -p 20 -t "$project":1.1 -c "$projectPath"
-	tmux splitw -h -p 30 -t "$project":1.2 -c "$projectPath"
-	tmux clock -t "$project":1.3
-	tmux select-pane -t "$project":1.2
-	tmux send-keys -t "$project":1.2 'source ./scripts/env; nix-shell' Enter 'clear' Enter
-	tmux select-pane -t "$project":1.1
-	tmux send-keys -t "$project":1.1 'v' Enter Space '-'
+    tmux new -d -s "$project" -c "$projectPath">/dev/null
+    tmux splitw -v -p 20 -t "$project":1.1 -c "$projectPath"
+    if [[ -f "$projectPath/shell.nix" ]]; then
+        tmux send-keys -t "$project":1.1 'nix-shell' Enter
+        tmux send-keys -t "$project":1.2 'nix-shell' Enter
+    fi
+    if [[ -f "$projectPath/scripts/env" ]]; then
+        tmux send-keys -t "$project":1.2 'source ./scripts/env;' Enter
+    fi
+    tmux send-keys -t "$project":1.2 'clear' Enter
+    tmux select-pane -t "$project":1.1
+    tmux send-keys -t "$project":1.1 'v' Enter Space '-'
 fi
 
 if [[ -z $TMUX ]]; then
-	tmux a -t "$project";
+    tmux a -t "$project";
 else
-	tmux switch -t "$project";
+    tmux switch -t "$project";
 fi

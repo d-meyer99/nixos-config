@@ -2,6 +2,7 @@
 with pkgs; [
   fastfetch
   neovim
+  brave
   git
   wget
   (
