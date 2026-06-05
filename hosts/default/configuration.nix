@@ -1,14 +1,13 @@
 { pkgs, ... }:
 let
   extraPackages = with pkgs; [
-    swww
+    awww
     xdg-desktop-portal-hyprland
     spotify
     yt-dlp
     vlc
     blueman
     discord
-    _1password-gui
     libreoffice
     pinta
 
@@ -101,7 +100,7 @@ in
   fonts.packages =
     with pkgs;
     [
-      vistafonts
+      vista-fonts
     ]
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues nerd-fonts);
 
