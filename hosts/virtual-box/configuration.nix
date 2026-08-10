@@ -20,6 +20,7 @@
     })
     ../common/fonts.nix
     ./packages.nix
+    ../common/docker.nix
   ];
 
   nix.settings.experimental-features = [

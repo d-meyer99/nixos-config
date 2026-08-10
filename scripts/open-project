@@ -5,8 +5,10 @@ if [[ -z $1 ]]; then
     exit
 fi
 
-project=${1%/}
-projectPath="$HOME/sources/$project/"
+projectName="${1/\./_}"
+projectDir=${1%/}
+project=${projectName%/}
+projectPath="$HOME/sources/$projectDir/"
 
 if ! [[ -d "$projectPath" ]]; then
     echo "$1 is not a project directory"
