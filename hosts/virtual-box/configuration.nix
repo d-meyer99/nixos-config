@@ -11,7 +11,7 @@
       lib = lib;
       extraGroups = [ "vboxsf" ];
     })
-    ../common/postgres.nix
+    # ../common/postgres.nix
     ../common/audio.nix
     (import ../common/xdg.nix {
       pkgs = pkgs;

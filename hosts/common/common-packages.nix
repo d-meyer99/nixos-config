@@ -70,6 +70,7 @@ with pkgs; [
   gopls
   docker-ls
   emmet-ls
+  postgres-lsp
 
   # build inputs
   librsvg
