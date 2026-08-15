@@ -45,7 +45,7 @@ with pkgs; [
   delve
   tree
   wrapGAppsHook4
-  sqlite
+  sqlite-interactive
   tree-sitter
 
   # Formatters

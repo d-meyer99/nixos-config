@@ -149,6 +149,12 @@ in
 
   services.blueman.enable = true;
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;        # Resolve .local addresses
+    openFirewall = true;    # Open firewall ports for mDNS discovery
+  };
+
   environment.localBinInPath = true;
 
   virtualisation.docker = {
