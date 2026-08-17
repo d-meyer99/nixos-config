@@ -1,0 +1,14 @@
+_open_project_completions() {
+  local cur="''${COMP_WORDS[COMP_CWORD]}"
+  local srcdir="$HOME/sources"
+
+  [[ -d "$srcdir" ]] || return
+
+  local projects=()
+  while IFS= read -r dir; do
+      projects+=("$(basename "$dir")")
+  done < <(find "$srcdir" -maxdepth 1 -mindepth 1 -type d)
+
+  COMPREPLY=($(compgen -W "''${projects[*]}" -- "$cur"))
+}
+complete -F _open_project_completions open-project

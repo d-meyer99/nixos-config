@@ -36,6 +36,10 @@
     defaultEditor = true;
   };
 
+  programs.bash.blesh = {
+    enable = true;
+  };
+
   programs.zsh.enable = true;
 
   environment.localBinInPath = true;
