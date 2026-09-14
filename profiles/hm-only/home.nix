@@ -4,6 +4,8 @@
     keychain
   ];
 
+  targets.genericLinux.enable = true;
+
   programs.neovim.enable = true;
 
   imports = [
