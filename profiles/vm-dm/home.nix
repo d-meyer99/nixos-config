@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.pointerCursor = {
+    enable = true;
     gtk.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Amber";
@@ -12,6 +13,10 @@
     NIXOS_OZONE_WL = "1";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
+
+  home.packages = with pkgs; [
+    keychain
+  ];
 
   imports = [
     ../home-config.nix

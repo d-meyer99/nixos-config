@@ -19,16 +19,16 @@ echo "$project"
 if ! tmux has-session -t "$project" 2>/dev/null; then
     tmux new -d -s "$project" -c "$projectPath">/dev/null
     tmux splitw -v -p 20 -t "$project":1.1 -c "$projectPath"
-    if [[ -f "$projectPath/shell.nix" ]]; then
-        tmux send-keys -t "$project":1.1 'nix-shell' Enter
-        tmux send-keys -t "$project":1.2 'nix-shell' Enter
-    fi
-    if [[ -f "$projectPath/scripts/env" ]]; then
-        tmux send-keys -t "$project":1.2 'source ./scripts/env;' Enter
+    if [[ -f "$projectPath/flake.nix" ]]; then
+        tmux send-keys -t "$project":1.1 'exec nix develop -c nvim' Enter
+        tmux send-keys -t "$project":1.2 'exec nix develop' Enter
+        sleep 1
+        tmux send-keys -t "$project":1.1 Space '-'
+    else
+        tmux send-keys -t "$project":1.1 'v' Enter Space '-'
     fi
     tmux send-keys -t "$project":1.2 'clear' Enter
     tmux select-pane -t "$project":1.1
-    tmux send-keys -t "$project":1.1 'v' Enter Space '-'
 fi
 
 if [[ -z $TMUX ]]; then

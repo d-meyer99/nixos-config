@@ -237,7 +237,7 @@ in
       };
 
       fonts = {
-        names = ["AurulentSansM Nerd Font"];
+        names = [ "AurulentSansM Nerd Font" ];
         size = 10.0;
       };
 
@@ -260,6 +260,7 @@ in
 
     extraConfig = ''
       for_window [class="^.*"] border pixel 2
+      exec_always --no-startup-id xrandr --output Virtual-1 --mode 1920x1080
       exec_always --no-startup-id feh --bg-fill ~/Wallpaper/wallpaper.jpg
     '';
   };

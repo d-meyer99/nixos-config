@@ -3,12 +3,10 @@ let
     isVm: let
       config = if isVm
         then {host = "virtual-box"; prof = "vm-dm"; }
-      else {host = "default"; prof = "dm"; };
+      else {host = "default"; prof = "hm-only"; };
     in
     {
       v = "nvim";
-      vnix-conf = "nvim ~/.dotfiles/hosts/default/configuration.nix";
-      vnix-home = "nvim ~/.dotfiles/hosts/default/home.nix";
       nixos-test =
         "sudo nixos-rebuild test --flake /home/dm/.dotfiles#${config.host}";
       nixos-switch =

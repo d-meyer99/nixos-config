@@ -1,7 +1,9 @@
 { ... }:
 {
-  services.xserver.windowManager.i3 = {
+  services.xserver = {
     enable = true;
+    xkb.layout = "pl";
+    windowManager.i3.enable = true;
   };
 
   hardware.graphics = {
@@ -10,7 +12,6 @@
   };
 
   environment.sessionVariables.XSESSION = "i3";
-  services.xserver.enable = true;
 
   security.polkit.enable = true;
 }

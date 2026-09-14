@@ -81,8 +81,8 @@ in
       "--info=inline"
     ];
     # Make Ctrl+T search files, Alt+C search directories
-    fileWidgetCommand = "fd --type f --hidden --follow --exclude .git";
-    changeDirWidgetCommand = "fd --type d --hidden --follow --exclude .git";
+    fileWidget.command = "fd --type f --hidden --follow --exclude .git";
+    changeDirWidget.command = "fd --type d --hidden --follow --exclude .git";
   };
 
   home.file.".local/bin/".source = ../../../scripts;

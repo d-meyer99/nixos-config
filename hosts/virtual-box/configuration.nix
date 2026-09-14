@@ -16,7 +16,7 @@
     (import ../common/xdg.nix {
       pkgs = pkgs;
       lib = lib;
-      extraPortals = [];
+      extraPortals = [ ];
     })
     ../common/fonts.nix
     ./packages.nix
@@ -47,4 +47,6 @@
   system.stateVersion = "24.05";
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
+
+  virtualisation.virtualbox.guest.enable = true;
 }

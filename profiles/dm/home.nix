@@ -2,6 +2,7 @@
   home.sessionVariables.TERMINAL = "foot";
 
   home.pointerCursor = {
+    enalble = true;
     gtk.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Amber";

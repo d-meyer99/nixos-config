@@ -25,7 +25,6 @@ with pkgs; [
   home-manager
   jq
   rustup
-  cargo
   cargo-tauri
   trunk
   httpie
@@ -47,12 +46,12 @@ with pkgs; [
   wrapGAppsHook4
   sqlite-interactive
   tree-sitter
+  typst
 
   # Formatters
   stylua
   beautysh
   alejandra
-  rustfmt
   prettier
   sqlfluff
 
@@ -64,15 +63,19 @@ with pkgs; [
   javascript-typescript-langserver
   typescript-language-server
   svelte-language-server
-  rust-analyzer
   typescript
   sqls
   gopls
   docker-ls
   emmet-ls
-  postgres-lsp
+  tinymist
 
   # build inputs
   librsvg
   webkitgtk_4_1
+
+  # frontend test
+  firefox
+  geckodriver
+  wasm-pack
 ]
